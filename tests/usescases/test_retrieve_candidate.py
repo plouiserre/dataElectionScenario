@@ -1,11 +1,11 @@
 import unittest
-from usecases.RetrieveCandidate import RetrieveCandidate
+from usecases.RetrieveResultElectionDistrict import RetrieveResultElectionDistrict
 
-class RetrieveCandidateTest(unittest.TestCase):
+class RetrieveResultElectionDistrictTest(unittest.TestCase):
     def test_candidates_are_finded(self):
-        retrieveCandidate = RetrieveCandidate()
+        retrieveResultElectionDistrict = RetrieveResultElectionDistrict()
                 
-        candidates = retrieveCandidate.Search()
+        candidates = retrieveResultElectionDistrict.Search()
 
         self.assertEqual(10,candidates.len)
         #1	Ain	101	1ère circonscription	86843	61830	71,20%	25013	28,80%	60495	69,66%	97,84%	929	1,07%	1,50%	406	0,47%	0,66% LR	BRETON	Xavier	MASCULIN	14495	16,69%	23,96%
@@ -18,7 +18,7 @@ class RetrieveCandidateTest(unittest.TestCase):
         #66	Pyrénées-Orientales	6601	1ère circonscription	74058	49093	66,29%	24965	33,71%	47821	64,57%	97,41%	768	1,04%	1,56%	504	0,68%	1,03% 6	REG	DANAT	Delphine	FEMININ	790	1,07%	1,65%
         #75	Paris	7512	12ème circonscription	75515	56860	75,30%	18655	24,70%	56268	74,51%	98,96%	406	0,54%	0,71%	186	0,25%	0,33% 10	ECO	BILLAULT HARLE	Alienor	FEMININ	850	1,13%	1,51%
         #92 Hauts-de-Seine	9210	10ème circonscription	80243	59663	74,35%	20580	25,65%	58553	72,97%	98,14%	1034	1,29%	1,73%	76	0,09%	0,13% 7	ENS	ATTAL	Gabriel	MASCULIN	25675	32,00%	43,85%
-                                                                                                        
+
     # def test_get_two_elections_datas_from_adapters_list_first_rounds(self, mock_dependency, mock_candidate_adapter, mock_result_district_first_round_adapter) :        
     #     helper = HelperTest()
         

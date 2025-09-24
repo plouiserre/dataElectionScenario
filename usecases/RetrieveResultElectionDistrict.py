@@ -1,6 +1,6 @@
 from usecases.Retrieve import Retrieve
 
-class RetrieveCandidate(Retrieve):
+class RetrieveResultElectionDistrict(Retrieve):
     def __init__(self):
         super().__init__()
 
