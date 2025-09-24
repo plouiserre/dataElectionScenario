@@ -2,6 +2,7 @@ class Candidate :
     def __init__(self):
         self.lastName = ''
         self.firstName = ''
+        self.sexe = ''
         self.partiCode = ''
         self.vote = 0
         self.voteByRegistered = 0.0
