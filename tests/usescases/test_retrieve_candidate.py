@@ -8,6 +8,7 @@ class RetrieveResultElectionDistrictTest(unittest.TestCase):
         candidates = retrieveResultElectionDistrict.Search()
 
         self.assertEqual(10,candidates.len)
+        
         #1	Ain	101	1ère circonscription	86843	61830	71,20%	25013	28,80%	60495	69,66%	97,84%	929	1,07%	1,50%	406	0,47%	0,66% LR	BRETON	Xavier	MASCULIN	14495	16,69%	23,96%
         #24	Dordogne	2404	4ème circonscription	89941	65770	73,13%	24171	26,87%	63216	70,29%	96,12%	1483	1,65%	2,25%	1071	1,19%	1,63% 3	UG	PEYTAVIE	Sébastien	MASCULIN	21801	24,24%	34,49%
         #33	Gironde	3310	10ème circonscription	83589	59039	70,63%	24550	29,37%	57167	68,39%	96,83%	1267	1,52%	2,15%	605	0,72%	1,02% 2	ENS	BOUDIÉ	Florent	MASCULIN	17128	20,49%	29,96%

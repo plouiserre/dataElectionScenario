@@ -1,6 +1,7 @@
 class District  : 
     def __init__(self):
+        self.departmentNumber = ''
+        self.number = 0
         self.label = ''
-        self.code = ''
         self.registered = 0
-        self.departmentCode = ''
+        self.voting = 0
