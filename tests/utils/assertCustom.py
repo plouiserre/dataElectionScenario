@@ -3,7 +3,7 @@
 # 2 - avec tous les candidats d'un district
 # 3 - tous les résultats
 #4	RN	CHADOURNE	Sandrine	FEMININ	25037	29,95%	43,80%
-def AssertCustom(datas, resultDistrict, unitTest):
+def AssertDistrictCandidatesResult(datas, resultDistrict, unitTest):
     data = datas.split('|')
     unitTest.assertEqual(data[2], str(resultDistrict.District.number))
     unitTest.assertEqual(data[3], resultDistrict.District.label)
@@ -49,3 +49,15 @@ def __assertFourthCandidate(data, candidate, unitTest):
     unitTest.assertEqual(data[43], str(candidate.vote))
     unitTest.assertEqual(data[44], str(candidate.voteByRegistered))
     unitTest.assertEqual(data[45], str(candidate.voteByExpressed))
+
+
+def AssertDepartment(datas, resultDepartment, unitTest):
+    data = datas.split('|')
+    unitTest.assertEqual(data[0], str(resultDepartment.Departments[0].code))
+    unitTest.assertEqual(data[1], resultDepartment.Departments[0].name)
+    unitTest.assertEqual(data[2], str(resultDepartment.Departments[1].code))
+    unitTest.assertEqual(data[3], resultDepartment.Departments[1].name)
+    unitTest.assertEqual(data[4], str(resultDepartment.Departments[2].code))
+    unitTest.assertEqual(data[5], resultDepartment.Departments[2].name)
+    unitTest.assertEqual(data[6], str(resultDepartment.Departments[3].code))
+    unitTest.assertEqual(data[7], resultDepartment.Departments[3].name)
