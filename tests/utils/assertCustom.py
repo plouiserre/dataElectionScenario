@@ -61,3 +61,16 @@ def AssertDepartment(datas, resultDepartment, unitTest):
     unitTest.assertEqual(data[5], resultDepartment.Departments[2].name)
     unitTest.assertEqual(data[6], str(resultDepartment.Departments[3].code))
     unitTest.assertEqual(data[7], resultDepartment.Departments[3].name)
+
+def AssertParties(datas, resultParties, unitTest):
+    data = datas.split('|')
+    unitTest.assertEqual(data[0], resultParties[0].code)
+    unitTest.assertEqual(data[1], resultParties[0].name)
+    unitTest.assertEqual(data[2], resultParties[1].code)
+    unitTest.assertEqual(data[3], resultParties[1].name)
+    unitTest.assertEqual(data[4], resultParties[2].code)
+    unitTest.assertEqual(data[5], resultParties[2].name)
+    unitTest.assertEqual(data[6], resultParties[3].code)
+    unitTest.assertEqual(data[7], resultParties[3].name)
+    unitTest.assertEqual(data[8], resultParties[4].code)
+    unitTest.assertEqual(data[9], resultParties[4].name)
