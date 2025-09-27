@@ -1,4 +1,4 @@
-from usecases.Retrieve import Retrieve
+from usecases.AdaptResultElectionData.Retrieve import Retrieve
 from domain.Candidate import Candidate
 from domain.ResultDistrictElection import ResultDistrictElection
 

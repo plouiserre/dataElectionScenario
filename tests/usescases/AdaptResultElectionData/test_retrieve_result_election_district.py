@@ -1,6 +1,6 @@
 import unittest
 from tests.utils.assertCustom import AssertDistrictCandidatesResult
-from usecases.RetrieveResultElectionDistrict import RetrieveResultElectionDistrict
+from usecases.AdaptResultElectionData.RetrieveResultElectionDistrict import RetrieveResultElectionDistrict
 
 class RetrieveResultElectionDistrictTest(unittest.TestCase):
     def test_candidates_are_finded(self):
