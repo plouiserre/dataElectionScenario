@@ -1,4 +1,4 @@
-from usecases.Retrieve import Retrieve
+from usecases.AdaptResultElectionData.Retrieve import Retrieve
 from domain.Party import Party
 
 # EXG Extrême gauche 

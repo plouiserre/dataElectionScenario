@@ -1,6 +1,6 @@
 from domain.Department import Department
 from domain.ResultDepartment import ResultDepartment
-from usecases.Retrieve import Retrieve
+from usecases.AdaptResultElectionData.Retrieve import Retrieve
 class RetrieveResultDepartment(Retrieve):
     def __init__(self):
         super().__init__()
