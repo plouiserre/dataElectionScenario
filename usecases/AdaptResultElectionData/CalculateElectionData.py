@@ -1,11 +1,7 @@
 class CalculateElectionData : 
-    def __init__(self, retrieveParty, retrieveDepartment, retrieveElectionDistrict):
-        self.retrieveParty = retrieveParty
-        self.retrieveDepartment = retrieveDepartment
-        self.retrieveElectionDistrict = retrieveElectionDistrict        
+    def __init__(self, dataServices):
+        self.dataServices = dataServices
 
     def Calculate(self):
-        parties = self.retrieveParty.Search()
-        departments = self.retrieveDepartment.Search()
-        districts = self.retrieveElectionDistrict.Search()
+        results = self.dataServices.RetrieveDatas()
         return True
