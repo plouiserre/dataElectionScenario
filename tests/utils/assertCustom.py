@@ -3,6 +3,7 @@
 # 2 - avec tous les candidats d'un district
 # 3 - tous les résultats
 #4	RN	CHADOURNE	Sandrine	FEMININ	25037	29,95%	43,80%
+#TODO this one to delete
 def AssertDistrictCandidatesResult(datas, resultDistrict, unitTest):
     data = datas.split('|')
     unitTest.assertEqual(data[2], str(resultDistrict.District.number))
@@ -13,6 +14,18 @@ def AssertDistrictCandidatesResult(datas, resultDistrict, unitTest):
     __assertSecondCandidate(data, resultDistrict.Candidates[1], unitTest)
     __assertThirdCandidate(data, resultDistrict.Candidates[2], unitTest)
     __assertFourthCandidate(data, resultDistrict.Candidates[3], unitTest)
+
+
+def AssertDistrictResult(datas, district, unitTest):
+    data = datas.split('|')
+    unitTest.assertEqual(data[2], str(district.number))
+    unitTest.assertEqual(data[3], district.label)
+    unitTest.assertEqual(data[4], str(district.registered))
+    unitTest.assertEqual(data[5], str(district.voting))
+    __assertFirstCandidate(data, district.Candidates[0], unitTest)
+    __assertSecondCandidate(data, district.Candidates[1], unitTest)
+    __assertThirdCandidate(data, district.Candidates[2], unitTest)
+    __assertFourthCandidate(data, district.Candidates[3], unitTest)
 
 def __assertFirstCandidate(data, candidate, unitTest):
     unitTest.assertEqual(data[18], candidate.partiCode)
@@ -61,6 +74,7 @@ def AssertDepartment(datas, resultDepartment, unitTest):
     unitTest.assertEqual(data[5], resultDepartment.Departments[2].name)
     unitTest.assertEqual(data[6], str(resultDepartment.Departments[3].code))
     unitTest.assertEqual(data[7], resultDepartment.Departments[3].name)
+
 
 def AssertParties(datas, resultParties, unitTest):
     data = datas.split('|')

@@ -4,3 +4,4 @@ class District  :
         self.label = ''
         self.registered = 0
         self.voting = 0
+        self.Candidates = []
