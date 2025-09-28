@@ -1,4 +1,4 @@
-from ports.outside.files.ExcelElection import ExcelElection
+from infrastructure.files.ExcelElection import ExcelElection
 from usecases.AdaptResultElectionData.CalculateElectionData import CalculateElectionData
 from usecases.AdaptResultElectionData.RetrieveParty import RetrieveParty
 from usecases.AdaptResultElectionData.RetrieveResultDepartment import RetrieveResultDepartment
