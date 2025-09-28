@@ -1,4 +1,5 @@
 from infrastructure.files.ExcelElection import ExcelElection
+from infrastructure.services.OpenDatasService import OpenDataServices
 from usecases.AdaptResultElectionData.CalculateElectionData import CalculateElectionData
 from usecases.AdaptResultElectionData.RetrieveParty import RetrieveParty
 from usecases.AdaptResultElectionData.RetrieveResultDepartment import RetrieveResultDepartment
@@ -9,10 +10,8 @@ excelManager = ExcelElection()
 datas = excelManager.Load()
 for line in datas :
     print(line)
-retrieveParties = RetrieveParty()
-retrieveDepartment = RetrieveResultDepartment()
-retrieveElectionDistrict = RetrieveResultElectionDistrict()
-calcul = CalculateElectionData(retrieveParties, retrieveDepartment, retrieveElectionDistrict)
+openDataServices = OpenDataServices()
+calcul = CalculateElectionData(openDataServices)
 calcul.Calculate()
 print("fin lecture")
 

@@ -1,4 +1,4 @@
-from ports.outside.services.DataServices import DataServices
+from usecases.ports.outside.DataServices import DataServices
 from domain.Department import Department
 from domain.Party import Party
 from domain.Candidate import Candidate
