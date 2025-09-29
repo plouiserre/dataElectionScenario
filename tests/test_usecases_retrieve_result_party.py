@@ -2,7 +2,7 @@ import unittest
 from tests.utils.assertCustom import AssertParties
 from usecases.AdaptResultElectionData.RetrieveParty import RetrieveParty
 
-class RetrieveResultDepartmentTest(unittest.TestCase):
+class UsecasesRetrieveResultDepartmentTest(unittest.TestCase):
     def test_parties_are_finded(self):
         retrieveParty = RetrieveParty()
 
