@@ -4,7 +4,7 @@ from infrastructure.files.ExcelElection import ExcelElection
 from infrastructure.services.OpenDatasService import OpenDataServices
 from usecases.AdaptResultElectionData.CalculateElectionData import CalculateElectionData
 
-class CalculateElectionDataTest(unittest.TestCase):
+class UsecasesCalculateElectionDataTest(unittest.TestCase):
     def get_datas_from_excel(self, *args)  : 
         return ''
     

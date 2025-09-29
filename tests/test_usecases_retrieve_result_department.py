@@ -2,7 +2,7 @@ import unittest
 from tests.utils.assertCustom import AssertDepartment
 from usecases.AdaptResultElectionData.RetrieveResultDepartment import RetrieveResultDepartment
 
-class RetrieveResultDepartmentTest(unittest.TestCase):
+class UsecasesRetrieveResultDepartmentTest(unittest.TestCase):
     def test_departments_are_finded(self):
         retrieveResultDepartment = RetrieveResultDepartment()
 
