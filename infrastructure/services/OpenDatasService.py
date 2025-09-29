@@ -6,10 +6,11 @@ from domain.District import District
 from domain.ResultDatas import ResultDatas
 
 class OpenDataServices(DataServices) : 
-    def __init__(self):
-        pass        
+    def __init__(self, excelElection):
+        self.ExcelElection = excelElection
 
     def RetrieveDatas(self):
+        datas = self.ExcelElection.Load()
         departments = self.__constructDepartments()
         parties = self.__constructsParties()
         districts = self.__constructsDistricts()
