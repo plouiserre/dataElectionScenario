@@ -10,7 +10,7 @@ excelManager = ExcelElection()
 datas = excelManager.Load()
 for line in datas :
     print(line)
-openDataServices = OpenDataServices()
+openDataServices = OpenDataServices(excelManager)
 calcul = CalculateElectionData(openDataServices)
 calcul.Calculate()
 print("fin lecture")
