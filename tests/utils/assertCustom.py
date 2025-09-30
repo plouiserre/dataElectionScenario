@@ -27,6 +27,16 @@ def AssertDistrictResult(datas, district, unitTest):
     __assertThirdCandidate(data, district.Candidates[2], unitTest)
     __assertFourthCandidate(data, district.Candidates[3], unitTest)
 
+def AssertCandidateResult(datas, candidate, unitTest):
+    data = datas.split('|')
+    unitTest.assertEqual(data[0], candidate.partiCode)
+    unitTest.assertEqual(data[1], candidate.lastName)
+    unitTest.assertEqual(data[2], candidate.firstName)
+    unitTest.assertEqual(data[3], candidate.sexe)
+    unitTest.assertEqual(data[4], str(candidate.vote))
+    unitTest.assertEqual(data[5], candidate.voteByRegistered)
+    unitTest.assertEqual(data[6], candidate.voteByExpressed)
+
 def __assertFirstCandidate(data, candidate, unitTest):
     unitTest.assertEqual(data[18], candidate.partiCode)
     unitTest.assertEqual(data[19], candidate.lastName)
