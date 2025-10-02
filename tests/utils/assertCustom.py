@@ -11,36 +11,14 @@ def __assertDistrictResult(data, district, unitTest):
     unitTest.assertEqual(data[4], str(district.registered))
     unitTest.assertEqual(data[5], str(district.voting))
     
-#TODO factorize the three unders
 def AssertCandidateResult(datas, candidate, unitTest):
     data = datas.split('|')
-    # unitTest.assertEqual(data[0], candidate.partiCode)
-    # unitTest.assertEqual(data[1], candidate.lastName)
-    # unitTest.assertEqual(data[2], candidate.firstName)
-    # unitTest.assertEqual(data[3], candidate.sexe)
-    # unitTest.assertEqual(data[4], str(candidate.vote))
-    # unitTest.assertEqual(data[5], candidate.voteByRegistered)
-    # unitTest.assertEqual(data[6], candidate.voteByExpressed)    
     __assertCandidate(data, 0, candidate, unitTest)
 
 def __assertFirstCandidate(data, candidate, unitTest):
-    # unitTest.assertEqual(data[18], candidate.partiCode)
-    # unitTest.assertEqual(data[19], candidate.lastName)
-    # unitTest.assertEqual(data[20], candidate.firstName)
-    # unitTest.assertEqual(data[21], candidate.sexe)
-    # unitTest.assertEqual(data[22], str(candidate.vote))
-    # unitTest.assertEqual(data[23], str(candidate.voteByRegistered))
-    # unitTest.assertEqual(data[24], str(candidate.voteByExpressed))
     __assertCandidate(data, 18, candidate, unitTest)
 
 def __assertSecondCandidate(data, candidate, unitTest):
-    # unitTest.assertEqual(data[25], candidate.partiCode)
-    # unitTest.assertEqual(data[26], candidate.lastName)
-    # unitTest.assertEqual(data[27], candidate.firstName)
-    # unitTest.assertEqual(data[28], candidate.sexe)
-    # unitTest.assertEqual(data[29], str(candidate.vote))
-    # unitTest.assertEqual(data[30], str(candidate.voteByRegistered))
-    # unitTest.assertEqual(data[31], str(candidate.voteByExpressed))
     __assertCandidate(data, 25, candidate, unitTest)
 
 def __assertCandidate(data, index, candidate, unitTest):
