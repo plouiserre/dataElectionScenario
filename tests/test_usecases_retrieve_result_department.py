@@ -8,4 +8,7 @@ class UsecasesRetrieveResultDepartmentTest(unittest.TestCase):
 
         resultDepartments = retrieveResultDepartment.Search()
 
-        AssertDepartment('1|Ain|13|Bouches-du-Rhône|31|Haute-Garonne|33|Gironde', resultDepartments, self)
+        AssertDepartment('1|Ain', resultDepartments.Departments[0], self)
+        AssertDepartment('13|Bouches-du-Rhône', resultDepartments.Departments[1], self)
+        AssertDepartment('31|Haute-Garonne', resultDepartments.Departments[2], self)
+        AssertDepartment('33|Gironde', resultDepartments.Departments[3], self)
