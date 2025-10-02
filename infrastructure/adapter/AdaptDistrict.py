@@ -31,6 +31,7 @@ class AdaptDistrict():
         return district
     
     def __extract_datas_candidates(self):
+        self.candidates_datas = []
         for i, data in enumerate(self.datas):
             if(i > 17):
                 self.candidates_datas.append(data)
@@ -39,6 +40,7 @@ class AdaptDistrict():
     def __get_candidates(self) : 
         isFirstCandidate = True
         candidate_data_to_adapt = []
+        self.candidates = []
         for candidate_data in self.candidates_datas:
             if candidate_data in self.parties_codes and isFirstCandidate == True:
                 isFirstCandidate = False

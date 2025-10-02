@@ -1,11 +1,16 @@
-def AssertDistrictResult(datas, district, unitTest):
+def AssertDistrictWithTwoCandidates(datas, district, unitTest):
     data = datas.split('|')
+    AssertDistrictResult(data, district, unitTest)
+    __assertFirstCandidate(data, district.Candidates[0], unitTest)
+    __assertSecondCandidate(data, district.Candidates[1], unitTest)
+
+
+def AssertDistrictResult(data, district, unitTest):
     unitTest.assertEqual(data[2], str(district.number))
     unitTest.assertEqual(data[3], district.label)
     unitTest.assertEqual(data[4], str(district.registered))
     unitTest.assertEqual(data[5], str(district.voting))
-    __assertFirstCandidate(data, district.Candidates[0], unitTest)
-    __assertSecondCandidate(data, district.Candidates[1], unitTest)
+    
 
 def AssertCandidateResult(datas, candidate, unitTest):
     data = datas.split('|')
@@ -36,16 +41,23 @@ def __assertSecondCandidate(data, candidate, unitTest):
     unitTest.assertEqual(data[31], str(candidate.voteByExpressed))
 
 
-def AssertDepartment(datas, resultDepartment, unitTest):
+def AssertFourDepartments(datas, resultDepartment, unitTest):
     data = datas.split('|')
-    unitTest.assertEqual(data[0], str(resultDepartment.Departments[0].code))
-    unitTest.assertEqual(data[1], resultDepartment.Departments[0].name)
-    unitTest.assertEqual(data[2], str(resultDepartment.Departments[1].code))
-    unitTest.assertEqual(data[3], resultDepartment.Departments[1].name)
-    unitTest.assertEqual(data[4], str(resultDepartment.Departments[2].code))
-    unitTest.assertEqual(data[5], resultDepartment.Departments[2].name)
-    unitTest.assertEqual(data[6], str(resultDepartment.Departments[3].code))
-    unitTest.assertEqual(data[7], resultDepartment.Departments[3].name)
+    AssertDepartment(data, 0, resultDepartment.Departments[0], unitTest)
+    AssertDepartment(data, 2, resultDepartment.Departments[1], unitTest)
+    AssertDepartment(data, 4, resultDepartment.Departments[2], unitTest)
+    AssertDepartment(data, 6, resultDepartment.Departments[3], unitTest)    
+    
+
+def AssertDepartment(data, index, department, unitTest):
+    unitTest.assertEqual(data[index], str(department.Departments[0].code))
+    unitTest.assertEqual(data[index + 1], department.Departments[0].name)
+
+
+def AssertDepartment(datas, department, unitTest):
+    data = datas.split('|')
+    unitTest.assertEqual(data[0], str(department.code))
+    unitTest.assertEqual(data[1], department.name)
 
 
 def AssertParties(datas, resultParties, unitTest):
@@ -60,3 +72,9 @@ def AssertParties(datas, resultParties, unitTest):
     unitTest.assertEqual(data[7], resultParties[3].name)
     unitTest.assertEqual(data[8], resultParties[4].code)
     unitTest.assertEqual(data[9], resultParties[4].name)
+
+
+def AssertParty(datas, resultParti, unitTest):
+    data = datas.split('|')
+    unitTest.assertEqual(data[0], resultParti.code)
+    unitTest.assertEqual(data[1], resultParti.name)
