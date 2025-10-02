@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import Mock
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
+from infrastructure.adapter.AdaptDepartment import AdaptDepartment
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 from infrastructure.services.OpenDatasService import OpenDataServices
 from usecases.AdaptResultElectionData.CalculateElectionData import CalculateElectionData
@@ -22,9 +23,10 @@ class UsecasesCalculateElectionDataTest(unittest.TestCase):
         lines = self.get_datas_from_excel()
         excelElection = Mock()
         excelElection.Load.return_value = lines
+        adaptDepartment = AdaptDepartment()
         adaptCandidate = AdaptCandidate()
         adaptDistrict = AdaptDistrict(adaptCandidate)
-        openDatasService = OpenDataServices(excelElection, adaptDistrict)
+        openDatasService = OpenDataServices(excelElection, adaptDistrict, adaptDepartment)
         calculateElectionData = CalculateElectionData(openDatasService)
         isWellExecuted = calculateElectionData.Calculate()
         self.assertTrue(isWellExecuted)                                                                                                                                                 
