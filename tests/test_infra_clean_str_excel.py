@@ -53,8 +53,6 @@ class CleanStrExcelTest(unittest.TestCase):
         self.assertEqual('1.01%', str_cleaned[16])
         self.assertEqual('1.44%', str_cleaned[17])
 
-
-
     def test_clean_str_complexe_line_cote_d_or_department(self):
         str_excel = "['21' 'Côte-d'Or' 2101 '1ère circonscription' 70511 51765 '73,41%' 18746 '26,59%' 50386 '71,46%' '97,34%' 1081 '1,53%' '2,09%' 298 '0,42%' '0,58%' 1 'UG' 'GODARD' 'Océane' 'FEMININ' 18716 '26,54%' '37,15%' 'élu' '4.0' 'ENS' 'MARTIN' 'Didier' 'MASCULIN' '17314.0' '24,56%' '34,36%' 'nan' '5.0' 'RN' 'HUMBLOT-CORNILLE' 'Cyline' 'FEMININ' '14356.0' '20,36%' '28,49%' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan']"
 
@@ -104,3 +102,54 @@ class CleanStrExcelTest(unittest.TestCase):
         self.assertEqual('14356.0', str_cleaned[40])
         self.assertEqual('20.36%', str_cleaned[41])
         self.assertEqual('28.49%', str_cleaned[42])
+
+
+    def test_clean_str_complexe_line_cote_d_armor_department(self):
+        str_excel = "['22' 'Côtes-d'Armor' 2201 '1ère circonscription' 90642 67511 '74,48%' 23131 '25,52%' 65591 '72,36%' '97,16%' 1404 '1,55%' '2,08%' 516 '0,57%' '0,76%' 1 'ENS' 'COSSON' 'Mickaël' 'MASCULIN' 27186 '29,99%' '41,45%' 'élu' '2.0' 'UG' 'GORGIARD' 'Marion' 'FEMININ' '20845.0' '23,00%' '31,78%' 'nan' '4.0' 'RN' 'BILLAUD' 'Françoise' 'FEMININ' '17560.0' '19,37%' '26,77%' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan']"
+
+        str_cleaned = CleanLineExcel(str_excel)
+
+        self.assertEqual(43, len(str_cleaned))
+        self.assertEqual('22', str_cleaned[0])
+        self.assertEqual('Côtes-d\'Armor', str_cleaned[1])
+        self.assertEqual('2201', str_cleaned[2])
+        self.assertEqual('1ère circonscription', str_cleaned[3])
+        self.assertEqual('90642', str_cleaned[4])
+        self.assertEqual('67511', str_cleaned[5])
+        self.assertEqual('74.48%', str_cleaned[6])
+        self.assertEqual('23131', str_cleaned[7])
+        self.assertEqual('25.52%', str_cleaned[8])
+        self.assertEqual('65591', str_cleaned[9])
+        self.assertEqual('72.36%', str_cleaned[10])
+        self.assertEqual('97.16%', str_cleaned[11])
+        self.assertEqual('1404', str_cleaned[12])
+        self.assertEqual('1.55%', str_cleaned[13])
+        self.assertEqual('2.08%', str_cleaned[14])
+        self.assertEqual('516', str_cleaned[15])
+        self.assertEqual('0.57%', str_cleaned[16])
+        self.assertEqual('0.76%', str_cleaned[17])        
+        self.assertEqual('1', str_cleaned[18])
+        self.assertEqual('ENS', str_cleaned[19])
+        self.assertEqual('COSSON', str_cleaned[20])
+        self.assertEqual('Mickaël', str_cleaned[21])
+        self.assertEqual('MASCULIN', str_cleaned[22])
+        self.assertEqual('27186', str_cleaned[23])
+        self.assertEqual('29.99%', str_cleaned[24])
+        self.assertEqual('41.45%', str_cleaned[25])
+        self.assertEqual('élu', str_cleaned[26])
+        self.assertEqual('2.0', str_cleaned[27])
+        self.assertEqual('UG', str_cleaned[28])
+        self.assertEqual('GORGIARD', str_cleaned[29])
+        self.assertEqual('Marion', str_cleaned[30])
+        self.assertEqual('FEMININ', str_cleaned[31])
+        self.assertEqual('20845.0', str_cleaned[32])
+        self.assertEqual('23.00%', str_cleaned[33])
+        self.assertEqual('31.78%', str_cleaned[34])
+        self.assertEqual('4.0', str_cleaned[35])
+        self.assertEqual('RN', str_cleaned[36])        
+        self.assertEqual('BILLAUD', str_cleaned[37])
+        self.assertEqual('Françoise', str_cleaned[38])
+        self.assertEqual('FEMININ', str_cleaned[39])
+        self.assertEqual('17560.0', str_cleaned[40])
+        self.assertEqual('19.37%', str_cleaned[41])
+        self.assertEqual('26.77%', str_cleaned[42])
