@@ -1,23 +1,23 @@
 from usecases.ports.outside.DataServices import DataServices
 from domain.Department import Department
 from domain.Party import Party
-from domain.Candidate import Candidate
-from domain.District import District
 from domain.ResultDatas import ResultDatas
 
 class OpenDataServices(DataServices) : 
-    def __init__(self, excelElection, adaptDistrict):
+    def __init__(self, excelElection, adaptDistrict, adaptDepartment):
         self.ExcelElection = excelElection
         self.AdaptDistrict = adaptDistrict
+        self.AdaptDepartment = adaptDepartment
         self.districts = []
+        self.departments = []
 
     def RetrieveDatas(self):
         datas = self.ExcelElection.Load()
         self.__retrieveDistricts(datas)
-        departments = self.__constructDepartments()
+        self.__retrieveDepartments(datas)
         parties = self.__constructsParties()
         resultFinals = ResultDatas()
-        resultFinals.Departments = departments
+        resultFinals.Departments = self.departments
         resultFinals.Districts = self.districts
         resultFinals.Parties = parties
         return resultFinals
@@ -27,26 +27,10 @@ class OpenDataServices(DataServices) :
             district = self.AdaptDistrict.Transform(data)
             self.districts.append(district)        
 
-
-    def __constructDepartments(self): 
-        firstDepartment = self.__construct_Department('Gironde', 33)
-        secondDepartment = self.__construct_Department('Morbihan', 56)
-        thirdDepartment = self.__construct_Department('Savoie', 73)
-        fourthDepartment = self.__construct_Department('Hauts-de-Seine', 92)
-        departments = []
-        departments.append(firstDepartment)
-        departments.append(secondDepartment)
-        departments.append(thirdDepartment)
-        departments.append(fourthDepartment)        
-        return departments
-
-
-    def __construct_Department(self, name, number): 
-        department = Department()
-        department.code = number
-        department.name = name
-        return department
-    
+    def __retrieveDepartments(self, datas): 
+         for data in datas : 
+            department = self.AdaptDepartment.Transform(data)
+            self.departments.append(department)     
     
     def __constructsParties(self):        
         firstParty = self.__setParties('UG', 'Union de la gauche')

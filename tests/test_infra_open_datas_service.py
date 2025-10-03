@@ -1,7 +1,8 @@
 import unittest
 from unittest.mock import Mock
-from infrastructure.adapter.AdaptDistrict import AdaptDistrict
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
+from infrastructure.adapter.AdaptDepartment import AdaptDepartment
+from infrastructure.adapter.AdaptDistrict import AdaptDistrict
 from infrastructure.services.OpenDatasService import OpenDataServices
 from tests.utils.assertCustom import AssertDistrictWithTwoCandidates, AssertDepartment, AssertParty
 
@@ -22,9 +23,10 @@ class OpenDataServicesTest(unittest.TestCase):
         lines = self.__get_datas_from_excel()
         excel_elections = Mock()
         excel_elections.Load.return_value = lines
+        adapt_department = AdaptDepartment()
         adapt_candidate = AdaptCandidate()
         adapt_district = AdaptDistrict(adapt_candidate)
-        open_data_services = OpenDataServices(excel_elections, adapt_district)
+        open_data_services = OpenDataServices(excel_elections, adapt_district, adapt_department)
 
         results = open_data_services.RetrieveDatas()
 
