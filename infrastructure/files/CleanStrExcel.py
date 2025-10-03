@@ -1,10 +1,15 @@
 def CleanLineExcel(str_excel):
     data = str_excel
     data = __delete_square_bracket(data)
+    data = __replace_forbidden_words(data)
     datas = __separate_str(data)
     datas = __clean_percentage(datas)
+    datas = __reput_forbidden_words(datas)
     return datas
 
+def __replace_forbidden_words(data):
+    data = data.replace('Côte-d\'Or', "CôtedOr")    
+    return data
 
 def __delete_square_bracket(str_excel):
     data = str_excel
@@ -50,5 +55,11 @@ def __update_percentage(data) :
     if '%' in data : 
         data_cleaned = data.replace(',','.')
     return data_cleaned
-# def __separate_str(str_excel):
-#     pass
+
+
+def __reput_forbidden_words(datas):
+    datas_with_forbidden_words = []
+    for data in datas:
+        data = data.replace('CôtedOr', 'Côte-d\'Or')    
+        datas_with_forbidden_words.append(data)
+    return datas_with_forbidden_words
