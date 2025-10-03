@@ -3,6 +3,7 @@ from unittest.mock import Mock
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 from infrastructure.adapter.AdaptDepartment import AdaptDepartment
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
+from infrastructure.memory.party_memory import PartyMemory
 from infrastructure.services.OpenDatasService import OpenDataServices
 from tests.utils.assertCustom import AssertDistrictWithTwoCandidates, AssertDepartment, AssertParty
 
@@ -26,7 +27,8 @@ class OpenDataServicesTest(unittest.TestCase):
         adapt_department = AdaptDepartment()
         adapt_candidate = AdaptCandidate()
         adapt_district = AdaptDistrict(adapt_candidate)
-        open_data_services = OpenDataServices(excel_elections, adapt_district, adapt_department)
+        party_memory = PartyMemory()
+        open_data_services = OpenDataServices(excel_elections, adapt_district, adapt_department, party_memory)
 
         results = open_data_services.RetrieveDatas()
 
@@ -40,8 +42,27 @@ class OpenDataServicesTest(unittest.TestCase):
         AssertDepartment("73|Savoie", results.Departments[2], self)
         AssertDepartment("92|Hauts-de-Seine", results.Departments[3], self)
 
-        AssertParty('UG|Union de la gauche', results.Parties[0], self)
-        AssertParty('ENS|ENS Ensemble ! (Majorité présidentielle)', results.Parties[1], self)
-        AssertParty('LR|Les Républicains', results.Parties[2], self)
-        AssertParty('DVD|Divers droite', results.Parties[3], self)
-        AssertParty('RN|Rassemblement National', results.Parties[4], self)
+        AssertParty('EXG|Extrême gauche', results.Parties[0], self)
+        AssertParty('COM|Parti communiste français', results.Parties[1], self)
+        AssertParty('FI|La France insoumise', results.Parties[2], self)
+        AssertParty('SOC|Parti socialiste', results.Parties[3], self)
+        AssertParty('RDG|Parti radical de gauche', results.Parties[4], self)
+        AssertParty('VEC|Les Ecologistes', results.Parties[5], self)
+        AssertParty('DVG|Divers gauche', results.Parties[6], self)
+        AssertParty('UG|Union de la gauche', results.Parties[7], self)
+        AssertParty('ECO|Ecologistes', results.Parties[8], self)
+        AssertParty('REG|Régionaliste', results.Parties[9], self)
+        AssertParty('DIV|Divers', results.Parties[10], self)
+        AssertParty('REN|Renaissance', results.Parties[11], self)
+        AssertParty('MDM|Modem', results.Parties[12], self)
+        AssertParty('HOR|Horizons', results.Parties[13], self)
+        AssertParty('ENS|Ensemble ! (Majorité présidentielle)', results.Parties[14], self)
+        AssertParty('DVC|Divers centre', results.Parties[15], self)
+        AssertParty('UDI|Union des Démocrates et Indépendants', results.Parties[16], self)
+        AssertParty('LR|Les Républicains', results.Parties[17], self)
+        AssertParty('DVD|Divers droite', results.Parties[18], self)
+        AssertParty('DSV|Droite souverainiste', results.Parties[19], self)
+        AssertParty('RN|Rassemblement National', results.Parties[20], self)
+        AssertParty('REC|Reconquête !', results.Parties[21], self)
+        AssertParty('UXD|Union de l\'extrême droite', results.Parties[22], self)
+        AssertParty('EXD|Extrême droite', results.Parties[23], self)
