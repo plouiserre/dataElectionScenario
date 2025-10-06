@@ -10,13 +10,12 @@ from domain.Party import Party
 class AdaptElectionDataTest(unittest.TestCase):
     def test_districts_are_finded(self):
         adaptElectionData = AdaptElectionData()
+        result_data = self.__construct_result_data()
 
-        # result_datas = self.__construct_result_data()
-        
-        # data = adaptElectionData.to_json(result_datas)
+        json_result = adaptElectionData.to_json(result_data)
 
-        result_data_expected = self.__construct_json_result()
-        mpl= "af"
+        json_expected = self.__construct_json_result()
+        self.assertEqual(json_expected, json_result)
 
 
     def __construct_json_result(self): 
