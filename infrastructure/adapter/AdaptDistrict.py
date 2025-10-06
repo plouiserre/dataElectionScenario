@@ -54,3 +54,20 @@ class AdaptDistrict():
                 candidate_data_to_adapt.append(candidate_data)
         candidate = self.adapt_candidate.Transform(candidate_data_to_adapt)
         self.candidates.append(candidate)
+
+    def to_json(self, district):
+        adapt_candidate = AdaptCandidate()
+        json_candidates = "\"candidates\":["
+        for i, candidate in enumerate(district.Candidates):             
+            json_candidate = adapt_candidate.to_json(candidate)
+            if(i == len(district.Candidates) - 1):
+                json_candidates += json_candidate
+            else :
+                json_candidates += json_candidate +","
+        json_candidates += "]"
+        json_district_without_candidates = "\"label\":\"{label}\",\"number\":{number}, \"registered\":{registered}," \
+                "\"voting\":{voting} ".format( label = district.label, number = district.number, registered = district.registered, 
+                voting = district.voting)
+        json_district_final = "{district}, {candidates}".format(district = json_district_without_candidates, candidates = json_candidates )
+        json_district_final = "{"+json_district_final+"}"
+        return json_district_final
