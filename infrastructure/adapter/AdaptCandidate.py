@@ -13,4 +13,13 @@ class AdaptCandidate():
         candidate.vote = datas[4]
         candidate.voteByRegistered = datas[5]
         candidate.voteByExpressed = datas[6]
-        return candidate
+        return candidate    
+
+    def to_json(self, candidate):
+        json_candidate = "\"lastName\":\"{lastName}\",\"firstName\":\"{firstName}\", \"sexe\":\"{sexe}\",\"partiCode\":\"{partiCode}\"," \
+        "\"vote\":{vote},\"voteByRegistered\":\"{voteByRegistered}\",\"voteByExpressed\":\"{voteByExpressed}\" ".format(
+            lastName = candidate.lastName, firstName = candidate.firstName, sexe = candidate.sexe, partiCode = candidate.partiCode, 
+            vote = candidate.vote, voteByRegistered = candidate.voteByRegistered, voteByExpressed = candidate.voteByExpressed
+        )
+        json_final = "{"+json_candidate+"}"
+        return json_final
