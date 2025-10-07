@@ -1,5 +1,6 @@
 import unittest
-from tests.utils.build_district import build_first_district, build_second_district, build_third_district, construct_district_json
+from tests.utils.build_department import build_departments, construct_departments_json
+from tests.utils.build_district import  builds_three_districts, construct_districts_json
 from infrastructure.adapter.AdaptElectionData import AdaptElectionData
 from domain.ResultDatas import ResultDatas
 from domain.Department import Department
@@ -22,37 +23,10 @@ class AdaptElectionDataTest(unittest.TestCase):
 
     def __construct_result_data(self):
         result = ResultDatas()
-        result.Districts =  self.__construct_districts()
-        result.Departments = self.__construct_departments()
+        result.Districts =  builds_three_districts()
+        result.Departments = build_departments()
         result.Parties = self.__construct_parties()
         return result
-        
-    def __construct_districts(self):
-        first_district = build_first_district()
-        
-        second_district = build_second_district()
-
-        third_district = build_third_district()
-
-        districts = []
-        districts.append(first_district)
-        districts.append(second_district)
-        districts.append(third_district)
-        return districts
-
-    def __construct_departments(self): 
-        first_department = self.__construct_department('33', 'Gironde')
-        second_department = self.__construct_department('92', 'Hauts de Seine')
-        departments = []
-        departments.append(first_department)
-        departments.append(second_department)
-        return departments
-
-    def __construct_department(self, code, name):
-        department = Department()
-        department.code = code
-        department.name = name
-        return department    
 
     def __construct_parties(self):
         first_party = self.__construct_party('UG', 'Union de la gauche')
@@ -73,8 +47,8 @@ class AdaptElectionDataTest(unittest.TestCase):
         return party    
 
     def __construct_json_result_data(self, result_data):
-        all_districts_json = self.__construct_json_result_data_districts(result_data.Districts)
-        all_departments_json = self.__construct_departments_json(result_data.Departments)
+        all_districts_json = construct_districts_json(result_data.Districts)
+        all_departments_json = construct_departments_json(result_data.Departments)
         all_parties_json = self.__construct_parties_json(result_data.Parties)
         result_data_json_inside = "{all_districts}, {all_departments}, {all_parties}".format(
             all_districts = all_districts_json, all_departments = all_departments_json, 
@@ -82,31 +56,6 @@ class AdaptElectionDataTest(unittest.TestCase):
         )
         result_data_json = "{\"result_data\" : {" + result_data_json_inside+ "}}"
         return result_data_json    
-
-    def __construct_json_result_data_districts(self, districts):
-        first_district_json = construct_district_json(districts[0])
-        second_district_json = construct_district_json(districts[1])
-        three_district_json = construct_district_json(districts[2])
-        districts_json_concat = "\"districts\":[{first_district_json} ,{second_district_json},{three_district_json}]".format(
-                first_district_json = first_district_json, second_district_json = second_district_json,
-                three_district_json = three_district_json
-            )
-        return districts_json_concat
-    
-    def __construct_departments_json(self, departments):
-        first_department_json = self.__construct_department_json(departments[0])
-        second_department_json = self.__construct_department_json(departments[1])
-        departments_json_concat = "\"departments\":[{first_department}, {second_department}]".format(
-            first_department = first_department_json, second_department = second_department_json
-        )
-        return departments_json_concat
-    
-    def __construct_department_json(self, department):
-        json_department = "\"name\":\"{name}\",\"code\":{code}".format(
-            name = department.name, code = department.code
-        )
-        json_final = "{"+json_department+"}"      
-        return json_final    
 
     def __construct_parties_json(self, parties):
         first_party_json = self.__construct_party_json(parties[0])
