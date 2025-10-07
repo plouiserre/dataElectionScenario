@@ -1,6 +1,18 @@
 from tests.utils.build_candidate import build_first_candidate, build_second_candidate, build_third_candidate, build_fourth_candidate, build_fifth_candidate, build_sixth_candidate, build_seventh_candidate, construct_candidate_json
-from domain.Candidate import Candidate
 from domain.District import District
+
+def builds_three_districts():
+    first_district = build_first_district()
+    
+    second_district = build_second_district()
+
+    third_district = build_third_district()
+
+    districts = []
+    districts.append(first_district)
+    districts.append(second_district)
+    districts.append(third_district)
+    return districts
 
 def build_first_district():
     first_candidate_first_district = build_first_candidate()
@@ -36,6 +48,16 @@ def __construct_district(label, number, registered, voting, first_candidate, sec
         if third_candidate != None : 
             district.Candidates.append(third_candidate)
         return district
+
+def construct_districts_json(districts):
+        first_district_json = construct_district_json(districts[0])
+        second_district_json = construct_district_json(districts[1])
+        three_district_json = construct_district_json(districts[2])
+        districts_json_concat = "\"districts\":[{first_district_json} ,{second_district_json},{three_district_json}]".format(
+                first_district_json = first_district_json, second_district_json = second_district_json,
+                three_district_json = three_district_json
+            )
+        return districts_json_concat
 
 def construct_district_json(district):
         candidates = ''
