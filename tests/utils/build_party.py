@@ -23,7 +23,7 @@ def construct_parties_json(parties):
         second_party_json = construct_party_json(parties[1])
         third_party_json = construct_party_json(parties[2])
         fourth_party_json = construct_party_json(parties[3])
-        parties_json_concat = "\"parties\":[{first_party}, {second_party}, {third_party}, {fourth_party}]".format(
+        parties_json_concat = "\"parties\":[{first_party},{second_party},{third_party},{fourth_party}]".format(
             first_party = first_party_json, second_party = second_party_json, third_party = third_party_json,
             fourth_party = fourth_party_json
         )

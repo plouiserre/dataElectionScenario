@@ -53,7 +53,7 @@ def construct_districts_json(districts):
         first_district_json = construct_district_json(districts[0])
         second_district_json = construct_district_json(districts[1])
         three_district_json = construct_district_json(districts[2])
-        districts_json_concat = "\"districts\":[{first_district_json} ,{second_district_json},{three_district_json}]".format(
+        districts_json_concat = "\"districts\":[{first_district_json},{second_district_json},{three_district_json}]".format(
                 first_district_json = first_district_json, second_district_json = second_district_json,
                 three_district_json = three_district_json
             )
@@ -64,11 +64,16 @@ def construct_district_json(district):
         district_json = __construct_district_without_candidates(district)
         first_candidate_json = construct_candidate_json(district.Candidates[0])
         second_candidate_json = construct_candidate_json(district.Candidates[1])
-        three_candidate_json = construct_candidate_json(district.Candidates[2])
-        candidates = "\"candidates\":[{first_candidate_json},{second_candidate_json},{three_candidate_json}]".format(
-                first_candidate_json = first_candidate_json, second_candidate_json = second_candidate_json,
-                three_candidate_json = three_candidate_json
-            )
+        if len(district.Candidates) == 3 :
+            three_candidate_json = construct_candidate_json(district.Candidates[2])
+            candidates = "\"candidates\":[{first_candidate_json},{second_candidate_json},{three_candidate_json}]".format(
+                    first_candidate_json = first_candidate_json, second_candidate_json = second_candidate_json,
+                    three_candidate_json = three_candidate_json
+                )
+        else :
+            candidates = "\"candidates\":[{first_candidate_json},{second_candidate_json}]".format(
+                    first_candidate_json = first_candidate_json, second_candidate_json = second_candidate_json
+                )
         district_concat = "{district}, {candidates}".format(district = district_json, candidates = candidates )
         final_district = district_concat+"}"
         return final_district

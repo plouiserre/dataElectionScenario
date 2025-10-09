@@ -26,7 +26,7 @@ def __construct_department(code, name):
 def construct_departments_json(departments):
     first_department_json = construct_department_json(departments[0])
     second_department_json = construct_department_json(departments[1])
-    departments_json_concat = "\"departments\":[{first_department}, {second_department}]".format(
+    departments_json_concat = "\"departments\":[{first_department},{second_department}]".format(
         first_department = first_department_json, second_department = second_department_json
     )
     return departments_json_concat
