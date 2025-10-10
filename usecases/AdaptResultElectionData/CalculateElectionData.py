@@ -4,4 +4,5 @@ class CalculateElectionData :
 
     def Calculate(self):
         results = self.dataServices.RetrieveDatas()
-        return True
+        is_ok = self.dataServices.SaveDatas(results)
+        return is_ok

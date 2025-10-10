@@ -3,6 +3,8 @@ from unittest.mock import Mock
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 from infrastructure.adapter.AdaptDepartment import AdaptDepartment
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
+from infrastructure.adapter.AdaptElectionData import AdaptElectionData
+from infrastructure.files.JsonFile import JsonFile
 from infrastructure.memory.party_memory import PartyMemory
 from infrastructure.services.OpenDatasService import OpenDataServices
 from tests.utils.assertCustom import AssertDistrictWithTwoCandidates, AssertDepartment, AssertParty
@@ -24,11 +26,13 @@ class OpenDataServicesTest(unittest.TestCase):
         lines = self.__get_datas_from_excel()
         excel_elections = Mock()
         excel_elections.Load.return_value = lines
+        json_file = JsonFile()
         adapt_department = AdaptDepartment()
         adapt_candidate = AdaptCandidate()
         adapt_district = AdaptDistrict(adapt_candidate)
+        adapt_election_data = AdaptElectionData()
         party_memory = PartyMemory()
-        open_data_services = OpenDataServices(excel_elections, adapt_district, adapt_department, party_memory)
+        open_data_services = OpenDataServices(excel_elections, json_file, adapt_district, adapt_department, adapt_election_data, party_memory)
 
         results = open_data_services.RetrieveDatas()
 

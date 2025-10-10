@@ -1,13 +1,13 @@
 from usecases.ports.outside.DataServices import DataServices
-from domain.Department import Department
-from domain.Party import Party
 from domain.ResultDatas import ResultDatas
 
 class OpenDataServices(DataServices) : 
-    def __init__(self, excelElection, adaptDistrict, adaptDepartment, party_memory):
+    def __init__(self, excelElection, jsonFile, adaptDistrict, adaptDepartment, adaptElectionData, party_memory):
         self.ExcelElection = excelElection
+        self.JsonFile = jsonFile
         self.AdaptDistrict = adaptDistrict
         self.AdaptDepartment = adaptDepartment
+        self.AdaptElectionData = adaptElectionData
         self.party_memory = party_memory
         self.districts = []
         self.departments = []
@@ -36,5 +36,9 @@ class OpenDataServices(DataServices) :
     
     def __retrieve_parties(self):        
         self.parties = self.party_memory.get_all_parties()
-    
+
+    def SaveDatas(self, result_datas):
+        json = self.AdaptElectionData.to_json(result_datas)
+        self.JsonFile.write(json)
+        return True
     
