@@ -154,9 +154,8 @@ class CleanStrExcelTest(unittest.TestCase):
         self.assertEqual('19.37%', str_cleaned[41])
         self.assertEqual('26.77%', str_cleaned[42])
 
-
-    def test_clean_str_complexe_line_val_d_oise_department(self):
-        str_excel = "['95' 'Val-d'Oise' 9501 '1ère circonscription' 84034 57719 '68,69%' 26315 '31,31%' 56053 '66,70%' '97,11%' 1326 '1,58%' '2,30%' 340 '0,40%' '0,59%' 2 'UG' 'JULES-ARTHUR' 'Maximillien' 'MASCULIN' 20534 '24,44%' '36,63%' 'nan' '6.0' 'RN' 'SICARD' 'Anne' 'FEMININ' '21025.0' '25,02%' '37,51%' 'élu' '8.0' 'ENS' 'CHANDLER' 'Émilie' 'FEMININ' '14494.0' '17,25%' '25,86%' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan']"
+    def test_clean_str_complexe_line_val_d_oise_department_and_complexe_name_candidate(self):
+        str_excel = "['95' 'Val-d'Oise' 9501 '1ère circonscription' 84034 57719 '68,69%' 26315 '31,31%' 56053 '66,70%' '97,11%' 1326 '1,58%' '2,30%' 340 '0,40%' '0,59%' 2 'UG' 'MOREL A L\'HUISSIER' 'Maximillien' 'MASCULIN' 20534 '24,44%' '36,63%' 'nan' '6.0' 'RN' 'PRUD\'HOMME' 'Anne' 'FEMININ' '21025.0' '25,02%' '37,51%' 'élu' '8.0' 'ENS' 'D\'ORSANNE' 'Émilie' 'FEMININ' '14494.0' '17,25%' '25,86%' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan' 'nan']"
 
         str_cleaned = CleanLineExcel(str_excel)
 
@@ -181,7 +180,7 @@ class CleanStrExcelTest(unittest.TestCase):
         self.assertEqual('0.59%', str_cleaned[17])        
         self.assertEqual('2', str_cleaned[18])
         self.assertEqual('UG', str_cleaned[19])
-        self.assertEqual('JULES-ARTHUR', str_cleaned[20])
+        self.assertEqual('MOREL A L\'HUISSIER', str_cleaned[20])
         self.assertEqual('Maximillien', str_cleaned[21])
         self.assertEqual('MASCULIN', str_cleaned[22])
         self.assertEqual('20534', str_cleaned[23])
@@ -189,7 +188,7 @@ class CleanStrExcelTest(unittest.TestCase):
         self.assertEqual('36.63%', str_cleaned[25])
         self.assertEqual('6.0', str_cleaned[26])
         self.assertEqual('RN', str_cleaned[27])
-        self.assertEqual('SICARD', str_cleaned[28])
+        self.assertEqual('PRUD\'HOMME', str_cleaned[28])
         self.assertEqual('Anne', str_cleaned[29])
         self.assertEqual('FEMININ', str_cleaned[30])
         self.assertEqual('21025.0', str_cleaned[31])
@@ -198,7 +197,7 @@ class CleanStrExcelTest(unittest.TestCase):
         self.assertEqual('élu', str_cleaned[34])
         self.assertEqual('8.0', str_cleaned[35])
         self.assertEqual('ENS', str_cleaned[36])        
-        self.assertEqual('CHANDLER', str_cleaned[37])
+        self.assertEqual('D\'ORSANNE', str_cleaned[37])
         self.assertEqual('Émilie', str_cleaned[38])
         self.assertEqual('FEMININ', str_cleaned[39])
         self.assertEqual('14494.0', str_cleaned[40])

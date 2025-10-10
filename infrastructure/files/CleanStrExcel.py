@@ -10,7 +10,11 @@ def CleanLineExcel(str_excel):
 def __replace_forbidden_words(data):
     data = data.replace('Côte-d\'Or', "CôtedOr")    
     data = data.replace('Côtes-d\'Armor', "CôtesdArmor")    
-    data = data.replace('Val-d\'Oise', "ValdOise")    
+    data = data.replace('Val-d\'Oise', "ValdOise")        
+    data = data.replace('Val-d\'Oise', "ValdOise")        
+    data = data.replace('MOREL A L\'HUISSIER', "MOREL A LHUISSIER")    
+    data = data.replace('PRUD\'HOMME', "PRUDHOMME")    
+    data = data.replace('D\'ORSANNE', "DORSANNE")    
     return data
 
 def __delete_square_bracket(str_excel):
@@ -64,6 +68,9 @@ def __reput_forbidden_words(datas):
     for data in datas:
         data = data.replace('CôtedOr', 'Côte-d\'Or')    
         data = data.replace('CôtesdArmor', 'Côtes-d\'Armor')   
-        data = data.replace('ValdOise', 'Val-d\'Oise')    
+        data = data.replace('ValdOise', 'Val-d\'Oise') 
+        data = data.replace('MOREL A LHUISSIER', 'MOREL A L\'HUISSIER')    
+        data = data.replace('PRUDHOMME','PRUD\'HOMME')
+        data = data.replace('DORSANNE', 'D\'ORSANNE')    
         datas_with_forbidden_words.append(data)
     return datas_with_forbidden_words
