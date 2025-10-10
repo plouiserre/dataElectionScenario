@@ -79,7 +79,7 @@ def construct_district_json(district):
         return final_district
     
 def __construct_district_without_candidates(district):
-        json_district = "\"label\":\"{label}\",\"number\":{number}, \"registered\":{registered},\"voting\":{voting} ".format(
+        json_district = "\"label\":\"{label}\",\"number\":\"{number}\", \"registered\":{registered},\"voting\":{voting} ".format(
             label = district.label, number = district.number, registered = district.registered, voting = district.voting)
         json_final = "{"+json_district
         return json_final
