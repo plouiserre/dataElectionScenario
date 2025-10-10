@@ -5,5 +5,5 @@ class JsonFile :
 
     def write(self, content):
         with open("C:\\Users\\ploui\\OneDrive\\Bureau\\jsonresult\\data.json", "w") as f : 
-            f.write("test mother fucker")
+            f.write(content)
         
