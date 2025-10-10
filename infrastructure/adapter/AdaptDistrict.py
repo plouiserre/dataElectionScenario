@@ -65,7 +65,7 @@ class AdaptDistrict():
             else :
                 json_candidates += json_candidate +","
         json_candidates += "]"
-        json_district_without_candidates = "\"label\":\"{label}\",\"number\":{number}, \"registered\":{registered}," \
+        json_district_without_candidates = "\"label\":\"{label}\",\"number\":\"{number}\", \"registered\":{registered}," \
                 "\"voting\":{voting} ".format( label = district.label, number = district.number, registered = district.registered, 
                 voting = district.voting)
         json_district_final = "{district}, {candidates}".format(district = json_district_without_candidates, candidates = json_candidates )
