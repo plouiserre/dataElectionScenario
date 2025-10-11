@@ -32,7 +32,7 @@ def construct_departments_json(departments):
     return departments_json_concat
 
 def construct_department_json(department):
-    json_department = "\"name\":\"{name}\",\"code\":{code}".format(
+    json_department = "\"name\":\"{name}\",\"code\":\"{code}\"".format(
         name = department.name, code = department.code
     )
     json_final = "{"+json_department+"}"      
