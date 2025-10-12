@@ -14,7 +14,18 @@ def __replace_forbidden_words(data):
     data = data.replace('Val-d\'Oise', "ValdOise")        
     data = data.replace('MOREL A L\'HUISSIER', "MOREL A LHUISSIER")    
     data = data.replace('PRUD\'HOMME', "PRUDHOMME")    
-    data = data.replace('D\'ORSANNE', "DORSANNE")    
+    data = data.replace('D\'ORSANNE', "DORSANNE")
+    data = data.replace('D\'INTORNI', "DINTORNI")
+    data = data.replace('D\'ORGEVILLE', "DORGEVILLE")
+    data = data.replace('L\'HUILLIER', "LHUILLIER")
+    data = data.replace('L\'HOMMEDET', "LHOMMEDET")
+    data = data.replace('GUIVARC\'H', 'GUIVARCH')
+    data = data.replace('M\'Hamed', 'MHamed')
+    data = data.replace('D\'AUTRYVE', 'DAUTRYVE')
+    data = data.replace('CUIGNACHE D\'APREVAL', 'CUIGNACHE DAPREVAL')
+    data = data.replace('N\'Cho Xavier', 'NCho Xavier')
+    data = data.replace('GISCARD D\'ESTAING', 'GISCARD DESTAING')
+
     return data
 
 def __delete_square_bracket(str_excel):
@@ -71,6 +82,16 @@ def __reput_forbidden_words(datas):
         data = data.replace('ValdOise', 'Val-d\'Oise') 
         data = data.replace('MOREL A LHUISSIER', 'MOREL A L\'HUISSIER')    
         data = data.replace('PRUDHOMME','PRUD\'HOMME')
-        data = data.replace('DORSANNE', 'D\'ORSANNE')    
+        data = data.replace('DORSANNE', 'D\'ORSANNE') 
+        data = data.replace('DINTORNI', 'D\'INTORNI')        
+        data = data.replace('DORGEVILLE', 'D\'ORGEVILLE')
+        data = data.replace('LHUILLIER', 'L\'HUILLIER')
+        data = data.replace('LHOMMEDET', 'L\'HOMMEDET')
+        data = data.replace('GUIVARCH', 'GUIVARC\'H')
+        data = data.replace('MHamed', 'M\'Hamed')
+        data = data.replace('DAUTRYVE', 'D\'AUTRYVE')
+        data = data.replace('CUIGNACHE DAPREVAL', 'CUIGNACHE D\'APREVAL')
+        data = data.replace('NCho Xavier', 'N\'Cho Xavier')
+        data = data.replace('GISCARD DESTAING', 'GISCARD D\'ESTAING')
         datas_with_forbidden_words.append(data)
     return datas_with_forbidden_words

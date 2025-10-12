@@ -6,7 +6,7 @@ class ExcelElection :
 
     def Load(self):
         datas = []
-        data = pd.read_excel("C:/Users/ploui/Projects/dataElectionScenario/openDatas/resultats-definitifs-par-circonscription.xlsx")
+        data = pd.read_excel("C:/Users/ploui/Projects/dataElectionScenario/openDatas/2024-circonscriptions.xlsx")
         for excel_data in enumerate(data.values) :
             dataWorked = self.__transform_excel_datas(excel_data[1])
             datas.append(dataWorked)
