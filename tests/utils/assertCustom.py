@@ -6,6 +6,7 @@ def AssertDistrictWithTwoCandidates(datas, district, unitTest):
 
 
 def __assertDistrictResult(data, district, unitTest):
+    unitTest.assertEqual(data[0], str(district.department_code))
     unitTest.assertEqual(data[2], str(district.number))
     unitTest.assertEqual(data[3], district.label)
     unitTest.assertEqual(data[4], str(district.registered))
