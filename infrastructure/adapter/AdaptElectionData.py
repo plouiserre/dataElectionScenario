@@ -1,5 +1,5 @@
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
-from infrastructure.adapter.AdaptDepartment import AdaptDepartment
+from infrastructure.adapter.AdaptDepartments import AdaptDepartments
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
 from infrastructure.adapter.AdaptParty import AdaptParty
 
@@ -35,15 +35,8 @@ class AdaptElectionData :
         self.districts_json += "]"
 
     def __departments_json(self):
-        self.departments_json += "\"departments\":["
-        for i, department in enumerate(self.departments):
-            adapt_department = AdaptDepartment()
-            json_department = adapt_department.to_json(department)
-            if(i == len(self.departments) - 1):
-                self.departments_json += json_department
-            else :                 
-                self.departments_json += json_department + ','
-        self.departments_json += "]"
+        adapt_departments = AdaptDepartments()
+        self.departments_json = adapt_departments.to_json(self.departments)
 
 
     def __parties_json(self):

@@ -14,8 +14,9 @@ def build_first_department():
 
 
 def build_second_department():
-    second_department = __construct_department('33', 'Gironde')
+    second_department = __construct_department('75', 'Paris')
     return second_department
+
 
 def __construct_department(code, name):
         department = Department()
@@ -36,4 +37,4 @@ def construct_department_json(department):
         name = department.name, code = department.code
     )
     json_final = "{"+json_department+"}"      
-    return json_final    
+    return json_final
