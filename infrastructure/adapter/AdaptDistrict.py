@@ -23,6 +23,7 @@ class AdaptDistrict():
 
     def __build_district(self):
         district = District()
+        district.department_code = self.datas[0]
         district.number = self.datas[2]
         district.label = self.datas[3]
         district.registered = self.datas[4]
@@ -65,9 +66,9 @@ class AdaptDistrict():
             else :
                 json_candidates += json_candidate +","
         json_candidates += "]"
-        json_district_without_candidates = "\"label\":\"{label}\",\"number\":\"{number}\", \"registered\":{registered}," \
-                "\"voting\":{voting} ".format( label = district.label, number = district.number, registered = district.registered, 
-                voting = district.voting)
+        json_district_without_candidates = "\"label\":\"{label}\",\"number\":\"{number}\", \"department code\":\"{department_code}\", \"registered\":{registered}," \
+                "\"voting\":{voting} ".format( label = district.label, number = district.number, department_code = district.department_code,
+                registered = district.registered, voting = district.voting)
         json_district_final = "{district}, {candidates}".format(district = json_district_without_candidates, candidates = json_candidates )
         json_district_final = "{"+json_district_final+"}"
         return json_district_final
