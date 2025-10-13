@@ -57,10 +57,10 @@ class AdaptDistrict():
         self.candidates.append(candidate)
 
     def to_json(self, district):
-        adapt_candidate = AdaptCandidate()
+        #adapt_candidate = AdaptCandidate()
         json_candidates = "\"candidates\":["
         for i, candidate in enumerate(district.Candidates):             
-            json_candidate = adapt_candidate.to_json(candidate)
+            json_candidate = self.adapt_candidate.to_json(candidate)
             if(i == len(district.Candidates) - 1):
                 json_candidates += json_candidate
             else :
