@@ -2,12 +2,12 @@ import unittest
 from tests.utils.build_department import build_departments, construct_departments_json
 from tests.utils.build_district import  builds_three_districts, construct_districts_json
 from tests.utils.build_party import build_parties, construct_parties_json
-from infrastructure.adapter.AdaptElectionData import AdaptElectionData
+from infrastructure.adapter.AdaptElectionsData import AdaptElectionsData
 from domain.ResultDatas import ResultDatas
 
 class AdaptElectionDataTest(unittest.TestCase):
     def test_districts_are_finded(self):
-        adaptElectionData = AdaptElectionData()
+        adaptElectionData = AdaptElectionsData()
         result_data = self.__construct_result_data()
 
         json_result = adaptElectionData.to_json(result_data)
