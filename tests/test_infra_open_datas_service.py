@@ -4,6 +4,7 @@ from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 from infrastructure.adapter.AdaptDepartment import AdaptDepartment
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
 from infrastructure.adapter.AdaptElectionsData import AdaptElectionsData
+from infrastructure.adapter.AdaptElection import AdaptElection
 from infrastructure.files.JsonFile import JsonFile
 from infrastructure.memory.party_memory import PartyMemory
 from infrastructure.services.OpenDatasService import OpenDataServices
@@ -33,22 +34,26 @@ class OpenDataServicesTest(unittest.TestCase):
         json_file = JsonFile()
         adapt_department = AdaptDepartment()
         adapt_candidate = AdaptCandidate()
-        adapt_district = AdaptDistrict(adapt_candidate)
-        adapt_election_data = AdaptElectionsData()
+        adapt_district = AdaptDistrict(adapt_candidate)        
+        adapt_election = AdaptElection(adapt_district)
+        adapt_elections_data = AdaptElectionsData()
         party_memory = PartyMemory()
-        open_data_services = OpenDataServices(excel_elections, json_file, adapt_district, adapt_department, adapt_election_data, party_memory)
+        open_data_services = OpenDataServices(excel_elections, json_file, adapt_department, adapt_elections_data, adapt_election, 
+                                              party_memory)
 
         results = open_data_services.RetrieveDatas()
 
-        AssertDistrictWithTwoCandidates("33|Gironde|3310|10ème circonscription|83620|58727|70,23%|24893|29,77%|55515|66,39%|94,53%|2365|2.83|4.03|847|1.01|1.44|ENS|BOUDIÉ|Florent|MASCULIN|28960|34.63%|52.17%|RN|CHADOURNE|Sandrine|FEMININ|26555|31.76%|47.83%", results.Districts[0], self)
-        AssertDistrictWithTwoCandidates("73|Savoie|7303|3ème circonscription|74595|53589|71,84%|21006|28,16%|51391|68,89%|95,90%|1696|2,27|3,16|502|0,67|0,94|RN|DAUCHY|Marie|FEMININ|19961|26.76%|38.84%|LR|BONNIVARD|Emilie|FEMININ|31430|42.13%|61.16%", results.Districts[1], self)
-        # AssertDistrictWithTwoCandidates("56|Morbihan|5603|3ème circonscription|98156|69854|71,17%|28302|28,83%|65630|66,86%|93,95%|2956|3,01|4,23|1268|1,29|1,82|ENS|LE PEIH|Nicole|FEMININ|37776|38.49%|57.56%|RN|OLIVIERO|Antoine|MASCULIN|27854|28.38%|42.44%", results.Districts[1], self)
-        # AssertDistrictWithTwoCandidates("92|Hauts-de-Seine|9205|5ème circonscription|77514|51903|66,96%|25611|33,04%|49318|63,62%|95,02%|1850|2,39|3,56|735|0,95|1,4|UG|PITTI|Raphaël|MASCULIN|21676|27.96%|43.95%|ENS|CALVEZ|Céline|FEMININ|27642|35.66%|56.05%", results.Districts[3], self)
+        self.assertEqual(2, len(results.Elections[0].Districts))
+        self.assertEqual(2022, results.Elections[0].year)
+        self.assertEqual(2, len(results.Elections[1].Districts))
+        self.assertEqual(2024, results.Elections[1].year)
+        AssertDistrictWithTwoCandidates("33|Gironde|3310|10ème circonscription|83620|58727|70,23%|24893|29,77%|55515|66,39%|94,53%|2365|2.83|4.03|847|1.01|1.44|ENS|BOUDIÉ|Florent|MASCULIN|28960|34.63%|52.17%|RN|CHADOURNE|Sandrine|FEMININ|26555|31.76%|47.83%", results.Elections[0].Districts[0], self)
+        AssertDistrictWithTwoCandidates("73|Savoie|7303|3ème circonscription|74595|53589|71,84%|21006|28,16%|51391|68,89%|95,90%|1696|2,27|3,16|502|0,67|0,94|RN|DAUCHY|Marie|FEMININ|19961|26.76%|38.84%|LR|BONNIVARD|Emilie|FEMININ|31430|42.13%|61.16%", results.Elections[0].Districts[1], self)
+        AssertDistrictWithTwoCandidates("56|Morbihan|5603|3ème circonscription|98156|69854|71,17%|28302|28,83%|65630|66,86%|93,95%|2956|3,01|4,23|1268|1,29|1,82|ENS|LE PEIH|Nicole|FEMININ|37776|38.49%|57.56%|RN|OLIVIERO|Antoine|MASCULIN|27854|28.38%|42.44%", results.Elections[1].Districts[0], self)
+        AssertDistrictWithTwoCandidates("92|Hauts-de-Seine|9205|5ème circonscription|77514|51903|66,96%|25611|33,04%|49318|63,62%|95,02%|1850|2,39|3,56|735|0,95|1,4|UG|PITTI|Raphaël|MASCULIN|21676|27.96%|43.95%|ENS|CALVEZ|Céline|FEMININ|27642|35.66%|56.05%", results.Elections[1].Districts[1], self)
 
         AssertDepartment("33|Gironde", results.Departments[0], self)
-        # AssertDepartment("56|Morbihan", results.Departments[1], self)
-        AssertDepartment("73|Savoie", results.Departments[1], self)
-        # AssertDepartment("92|Hauts-de-Seine", results.Departments[3], self)
+        AssertDepartment("73|Savoie", results.Departments[1], self)        
 
         AssertParty('EXG|Extrême gauche', results.Parties[0], self)
         AssertParty('COM|Parti communiste français', results.Parties[1], self)

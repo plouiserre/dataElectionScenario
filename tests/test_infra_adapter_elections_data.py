@@ -4,6 +4,7 @@ from tests.utils.build_district import  builds_three_districts, construct_distri
 from tests.utils.build_party import build_parties, construct_parties_json
 from infrastructure.adapter.AdaptElectionsData import AdaptElectionsData
 from domain.ResultDatas import ResultDatas
+from domain.Election import Election
 
 class AdaptElectionDataTest(unittest.TestCase):
     def test_districts_are_finded(self):
@@ -22,13 +23,17 @@ class AdaptElectionDataTest(unittest.TestCase):
 
     def __construct_result_data(self):
         result = ResultDatas()
-        result.Districts =  builds_three_districts()
+        #tmp
+        result.Elections = []
+        election = Election()
+        election.Districts = builds_three_districts()
+        result.Elections.append(election)
         result.Departments = build_departments()
         result.Parties = build_parties()
         return result
 
     def __construct_json_result_data(self, result_data):
-        all_districts_json = construct_districts_json(result_data.Districts)
+        all_districts_json = construct_districts_json(result_data.Elections[0].Districts)
         all_departments_json = construct_departments_json(result_data.Departments)
         all_parties_json = construct_parties_json(result_data.Parties)
         result_data_json_inside = "{all_districts}, {all_departments}, {all_parties}".format(
