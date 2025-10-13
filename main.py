@@ -11,7 +11,12 @@ from infrastructure.memory.party_memory import PartyMemory
 
 
 print("lecture données")
-excelManager = ExcelElection()
+# paths = ["C:/Users/ploui/Projects/dataElectionScenario/openDatas/2024-circonscriptions.xlsx", "C:/Users/ploui/Projects/dataElectionScenario/openDatas/2022-circonscriptions.xlsx"]
+# keys = [2022, 2024]
+paths = ["C:/Users/ploui/Projects/dataElectionScenario/openDatas/2024-circonscriptions.xlsx"]
+keys = [2024]
+
+excelManager = ExcelElection(keys, paths)
 json_files = JsonFile()
 adaptCandidate = AdaptCandidate()
 adaptDistrict = AdaptDistrict(adaptCandidate)
