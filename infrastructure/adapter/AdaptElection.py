@@ -2,10 +2,10 @@ from domain.Election import Election
 
 class AdaptElection : 
     def __init__(self, adaptDistrict):
-        self.AdaptDistrict = adaptDistrict
-        self.districts = []
+        self.AdaptDistrict = adaptDistrict        
 
     def Transform(self, datas, year):
+        self.districts = []
         for data in datas : 
             district = self.AdaptDistrict.Transform(data)
             self.districts.append(district)  

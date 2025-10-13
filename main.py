@@ -5,6 +5,7 @@ from usecases.AdaptResultElectionData.CalculateElectionData import CalculateElec
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 from infrastructure.adapter.AdaptDepartment import AdaptDepartment
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
+from infrastructure.adapter.AdaptElection import AdaptElection
 from infrastructure.adapter.AdaptElectionsData import AdaptElectionsData
 from infrastructure.memory.party_memory import PartyMemory
 
@@ -14,13 +15,14 @@ excelManager = ExcelElection()
 json_files = JsonFile()
 adaptCandidate = AdaptCandidate()
 adaptDistrict = AdaptDistrict(adaptCandidate)
+adapt_election = AdaptElection(adaptDistrict)
 adaptDepartment  = AdaptDepartment()
 adapt_election_data = AdaptElectionsData()
 party_memory = PartyMemory()
 datas = excelManager.Load()
 for line in datas :
     print(line)
-openDataServices = OpenDataServices(excelManager, json_files, adaptDistrict, adaptDepartment, adapt_election_data, party_memory)
+openDataServices = OpenDataServices(excelManager, json_files, adaptDepartment, adapt_election_data, adapt_election, party_memory)
 calcul = CalculateElectionData(openDataServices)
 calcul.Calculate()
 print("fin lecture")

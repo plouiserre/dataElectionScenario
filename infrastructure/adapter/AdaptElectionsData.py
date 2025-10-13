@@ -13,7 +13,8 @@ class AdaptElectionsData :
         pass
 
     def to_json(self, result_datas): 
-        self.districts = result_datas.Districts
+        #tmp code
+        self.districts = result_datas.Elections[0].Districts
         self.departments = result_datas.Departments
         self.parties = result_datas.Parties
         self.__districts_json()
