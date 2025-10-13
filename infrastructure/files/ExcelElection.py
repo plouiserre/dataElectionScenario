@@ -1,20 +1,19 @@
 import pandas as pd
 
 class ExcelElection :
-    def __init__(self):
-        pass
+    def __init__(self, keys,  paths):
+        self.keys = keys
+        self.paths = paths
 
     def Load(self):
-        results = {}
-        paths = ["C:/Users/ploui/Projects/dataElectionScenario/openDatas/2024-circonscriptions.xlsx", "C:/Users/ploui/Projects/dataElectionScenario/openDatas/2022-circonscriptions.xlsx"]
-        keys = [2022, 2024]
-        for idx, path in enumerate(paths):
+        results = {}        
+        for idx, path in enumerate(self.paths):
             datas = []
             data = pd.read_excel(path)
             for excel_data in enumerate(data.values) :
                 dataWorked = self.__transform_excel_datas(excel_data[1])
                 datas.append(dataWorked)
-            key = keys[idx]
+            key = self.keys[idx]
             results[key] = datas
         return results
     
