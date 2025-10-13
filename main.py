@@ -5,7 +5,7 @@ from usecases.AdaptResultElectionData.CalculateElectionData import CalculateElec
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 from infrastructure.adapter.AdaptDepartment import AdaptDepartment
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
-from infrastructure.adapter.AdaptElectionData import AdaptElectionData
+from infrastructure.adapter.AdaptElectionsData import AdaptElectionsData
 from infrastructure.memory.party_memory import PartyMemory
 
 
@@ -15,7 +15,7 @@ json_files = JsonFile()
 adaptCandidate = AdaptCandidate()
 adaptDistrict = AdaptDistrict(adaptCandidate)
 adaptDepartment  = AdaptDepartment()
-adapt_election_data = AdaptElectionData()
+adapt_election_data = AdaptElectionsData()
 party_memory = PartyMemory()
 datas = excelManager.Load()
 for line in datas :
