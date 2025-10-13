@@ -13,4 +13,17 @@ class AdaptElection :
         election.year = year
         election.Districts = self.districts
         return election
+    
+    def to_json(self, election):
+        json_districts = "\"districts\":["
+        for i, district in enumerate(election.Districts):
+            json_district = self.AdaptDistrict.to_json(district)
+            if(i == len(election.Districts) - 1):
+                json_districts += json_district
+            else : 
+                json_districts += json_district +"," 
+        json_districts += "]"
+        json = "\"year\":{year}, {districts}".format(year = election.year, districts = json_districts)
+        json_final  = "{"+json+"}"
+        return json_final
         
