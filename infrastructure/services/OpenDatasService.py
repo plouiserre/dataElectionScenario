@@ -14,7 +14,8 @@ class OpenDataServices(DataServices) :
         self.parties = []
 
     def RetrieveDatas(self):
-        datas = self.ExcelElection.Load()
+        all_datas = self.ExcelElection.Load()
+        datas = all_datas[0]
         self.__retrieveDistricts(datas)
         self.__retrieveDepartments(datas)
         self.__retrieve_parties()

@@ -19,7 +19,9 @@ class UsecasesCalculateElectionDataTest(unittest.TestCase):
         lines.append(seconeLine)
         lines.append(thirdLine)
         lines.append(fourthLine)
-        return lines
+        all_datas = {}
+        all_datas[0] = lines
+        return all_datas
     
     def test_elections_datas_are_calculated(self):
         lines = self.get_datas_from_excel()

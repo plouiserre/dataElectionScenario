@@ -5,12 +5,16 @@ class ExcelElection :
         pass
 
     def Load(self):
-        datas = []
-        data = pd.read_excel("C:/Users/ploui/Projects/dataElectionScenario/openDatas/resultats-definitifs-par-circonscription.xlsx")
-        for excel_data in enumerate(data.values) :
-            dataWorked = self.__transform_excel_datas(excel_data[1])
-            datas.append(dataWorked)
-        return datas
+        results = {}
+        paths = ["C:/Users/ploui/Projects/dataElectionScenario/openDatas/2024-circonscriptions.xlsx", "C:/Users/ploui/Projects/dataElectionScenario/openDatas/2022-circonscriptions.xlsx"]
+        for idx, path in enumerate(paths):
+            datas = []
+            data = pd.read_excel(path)
+            for excel_data in enumerate(data.values) :
+                dataWorked = self.__transform_excel_datas(excel_data[1])
+                datas.append(dataWorked)
+            results[idx] = datas
+        return results
     
     def __transform_excel_datas(self, excel_data) : 
         data_clean = '['
