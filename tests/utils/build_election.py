@@ -14,3 +14,11 @@ def construct_election_json(election):
     json = "\"year\":{year}, {districts}".format(year = election.year, districts = districts_json)
     json_final  = "{"+json+"}"
     return json_final
+
+def construct_elections_json(elections):
+    first_election_json = construct_election_json(elections[0])
+    second_election_json = construct_election_json(elections[1])
+    elections_json_concat = "\"elections\":[{first_election_json},{second_election_json}]".format(
+        first_election_json = first_election_json, second_election_json = second_election_json
+    )
+    return elections_json_concat
