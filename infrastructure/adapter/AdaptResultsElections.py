@@ -3,7 +3,7 @@ from infrastructure.adapter.AdaptDepartments import AdaptDepartments
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
 from infrastructure.adapter.AdaptParty import AdaptParty
 
-class AdaptElectionsData : 
+class AdaptResultsElections : 
     def __init__(self):
         self.districts_json = ''
         self.departments_json = ''
