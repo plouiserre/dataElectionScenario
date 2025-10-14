@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock
-from infrastructure.adapter.AdaptElectionsData import AdaptElectionsData
+from infrastructure.adapter.AdaptResultsElections import AdaptResultsElections
 from infrastructure.adapter.AdaptElection import AdaptElection
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
 from infrastructure.adapter.AdaptDepartment import AdaptDepartment
@@ -34,9 +34,9 @@ class UsecasesCalculateElectionDataTest(unittest.TestCase):
         adaptCandidate = AdaptCandidate()
         adaptDistrict = AdaptDistrict(adaptCandidate)   
         adaptElection = AdaptElection(adaptDistrict)
-        adapt_election_data = AdaptElectionsData()     
+        adapt_results_elections = AdaptResultsElections()     
         party_memory = PartyMemory()
-        openDatasService = OpenDataServices(excelElection, json_file, adaptDepartment, adapt_election_data, adaptElection, party_memory)
+        openDatasService = OpenDataServices(excelElection, json_file, adaptDepartment, adapt_results_elections, adaptElection, party_memory)
         calculateElectionData = CalculateElectionData(openDatasService)
         isWellExecuted = calculateElectionData.Calculate()
         self.assertTrue(isWellExecuted)                                                                                                                                                 

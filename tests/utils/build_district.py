@@ -52,13 +52,25 @@ def __construct_district(label, number, department_code, registered, voting, fir
 
 def construct_districts_json(districts):
         first_district_json = construct_district_json(districts[0])
-        second_district_json = construct_district_json(districts[1])
-        three_district_json = construct_district_json(districts[2])
-        districts_json_concat = "\"districts\":[{first_district_json},{second_district_json},{three_district_json}]".format(
-                first_district_json = first_district_json, second_district_json = second_district_json,
-                three_district_json = three_district_json
-            )
-        return districts_json_concat
+        if len(districts) > 1 :
+            second_district_json = construct_district_json(districts[1])
+            if len(districts) == 3:
+                three_district_json = construct_district_json(districts[2])
+                districts_json_concat = "\"districts\":[{first_district_json},{second_district_json},{three_district_json}]".format(
+                        first_district_json = first_district_json, second_district_json = second_district_json,
+                        three_district_json = three_district_json
+                    )
+                return districts_json_concat
+            else :
+                districts_json_concat = "\"districts\":[{first_district_json},{second_district_json}]".format(
+                        first_district_json = first_district_json, second_district_json = second_district_json
+                    )
+                return districts_json_concat
+        else :
+            districts_json_concat = "\"districts\":[{first_district_json}]".format(
+                    first_district_json = first_district_json
+                )
+            return districts_json_concat
 
 def construct_district_json(district):
         candidates = ''

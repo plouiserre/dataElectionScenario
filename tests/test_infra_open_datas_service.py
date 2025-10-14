@@ -3,7 +3,7 @@ from unittest.mock import Mock
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 from infrastructure.adapter.AdaptDepartment import AdaptDepartment
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
-from infrastructure.adapter.AdaptElectionsData import AdaptElectionsData
+from infrastructure.adapter.AdaptResultsElections import AdaptResultsElections
 from infrastructure.adapter.AdaptElection import AdaptElection
 from infrastructure.files.JsonFile import JsonFile
 from infrastructure.memory.party_memory import PartyMemory
@@ -36,9 +36,9 @@ class OpenDataServicesTest(unittest.TestCase):
         adapt_candidate = AdaptCandidate()
         adapt_district = AdaptDistrict(adapt_candidate)        
         adapt_election = AdaptElection(adapt_district)
-        adapt_elections_data = AdaptElectionsData()
+        adapt_results_elections = AdaptResultsElections()
         party_memory = PartyMemory()
-        open_data_services = OpenDataServices(excel_elections, json_file, adapt_department, adapt_elections_data, adapt_election, 
+        open_data_services = OpenDataServices(excel_elections, json_file, adapt_department, adapt_results_elections, adapt_election, 
                                               party_memory)
 
         results = open_data_services.RetrieveDatas()
