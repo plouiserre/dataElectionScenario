@@ -17,7 +17,7 @@ class OpenDataServices(DataServices) :
         all_datas = self.ExcelElection.Load()
         self.__retrieveElections(all_datas)
         self.__retrieveDepartments(all_datas)
-        self.__retrieve_parties()
+        self.__retrieve_parties() 
         resultFinals = ResultDatas()
         resultFinals.Departments = self.departments
         resultFinals.Elections = self.elections

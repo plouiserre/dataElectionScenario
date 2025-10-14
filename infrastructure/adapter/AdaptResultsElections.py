@@ -25,18 +25,6 @@ class AdaptResultsElections :
         result_datas_json = self.__results_data_json()      
         return result_datas_json
 
-    # def __districts_json(self):
-    #     self.districts_json += "{\"districts\":["
-    #     for i, district in enumerate(self.districts):
-    #         adapt_candidate = AdaptCandidate()
-    #         adapt_district = AdaptDistrict(adapt_candidate)
-    #         json_district = adapt_district.to_json(district)
-    #         if(i == len(self.districts) - 1):
-    #             self.districts_json += json_district            
-    #         else :
-    #             self.districts_json += json_district +","
-    #     self.districts_json += "]"
-
     def __elections_json(self):
         self.elections_json += "{\"elections\":["
         for i, election in enumerate(self.elections):
