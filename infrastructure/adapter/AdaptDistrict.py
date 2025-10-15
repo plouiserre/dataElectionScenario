@@ -1,6 +1,6 @@
 from domain.District import District
-from infrastructure.adapter.AdaptCandidate import AdaptCandidate
-from infrastructure.files.CleanStrExcel import CleanLineExcel
+from infrastructure.files.FormatExcelData2024 import FormatExcelData2024
+
 
 class AdaptDistrict():
     def __init__(self, adapt_candidate):
@@ -15,7 +15,8 @@ class AdaptDistrict():
         pass
 
     def Transform(self, datas):
-        self.datas = CleanLineExcel(datas)
+        excel_format = FormatExcelData2024()
+        self.datas = excel_format.format(datas)
         self.__extract_datas_candidates()
         self.__get_candidates()
         district = self.__build_district()
