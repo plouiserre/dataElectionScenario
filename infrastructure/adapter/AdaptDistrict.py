@@ -1,5 +1,5 @@
 from domain.District import District
-from infrastructure.files.FormatExcelData2024 import FormatExcelData2024
+from infrastructure.factory.FormatExcelDataFactory import FormatExcelDataFactory
 
 
 class AdaptDistrict():
@@ -10,12 +10,15 @@ class AdaptDistrict():
         self.candidates = []
         self.adapt_candidate = adapt_candidate
         #TODO centralize somewhere
-        self.parties_codes = ['EXG', 'COM', 'FI', 'SOC', 'RDG', 'VEC', 'DVG', 'UG', 'ECO', 'REG', 'DIV', 'REN', 'MDM', 'HOR', 'ENS', 
+        #TODO supprimer 'DXG' 'NUP' et repenser les parties plus proprement!!!!!!!!
+        #TODO retravailler avec https://www.archives-resultats-elections.interieur.gouv.fr/resultats/legislatives-2022/nuances.php
+        self.parties_codes = ['EXG', 'DXG', 'COM', 'FI', 'SOC', 'RDG', 'VEC', 'DVG', 'NUP', 'UG', 'ECO', 'REG', 'DIV', 'REN', 'MDM', 'HOR', 'ENS', 
                               'DVC', 'UDI', 'LR', 'DVD', 'DSV', 'RN', 'REC', 'UXD', 'EXD']         
+        self.format_excel_factory = FormatExcelDataFactory()
         pass
 
-    def Transform(self, datas):
-        excel_format = FormatExcelData2024()
+    def Transform(self, datas, key):
+        excel_format = self.format_excel_factory.get_format_excel_data(key)
         self.datas = excel_format.format(datas)
         self.__extract_datas_candidates()
         self.__get_candidates()

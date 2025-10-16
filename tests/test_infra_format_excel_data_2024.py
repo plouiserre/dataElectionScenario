@@ -1,7 +1,7 @@
 import unittest
 from infrastructure.files.FormatExcelData2024 import FormatExcelData2024
 
-class FromExcelData2022Test(unittest.TestCase):
+class FromExcelData2024Test(unittest.TestCase):
     def test_clean_str_simple_line_excel(self):
         str_excel = "['33' 'Gironde' 3310 '10ème circonscription' 83620 58727 '70,23%' 24893 '29,77%' 55515 '66,39%' '94,53%' 2365 '2,83%' '4,03%' 847 '1,01%' '1,44%']"
 

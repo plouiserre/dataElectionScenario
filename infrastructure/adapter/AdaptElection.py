@@ -7,7 +7,7 @@ class AdaptElection :
     def Transform(self, datas, year):
         self.districts = []
         for data in datas : 
-            district = self.AdaptDistrict.Transform(data)
+            district = self.AdaptDistrict.Transform(data, year)
             self.districts.append(district)  
         election = Election()
         election.year = year
