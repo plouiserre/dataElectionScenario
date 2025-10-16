@@ -32,7 +32,7 @@ class OpenDataServices(DataServices) :
     def __retrieveDepartments(self, datas): 
          first_year = list(datas.keys())[0]
          for data in datas[first_year] : 
-            department = self.AdaptDepartment.Transform(data)
+            department = self.AdaptDepartment.Transform(data, first_year)
             self.departments.append(department)     
     
     def __retrieve_parties(self):        

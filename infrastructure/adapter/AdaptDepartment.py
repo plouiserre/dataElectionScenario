@@ -1,12 +1,13 @@
 from domain.Department import Department
-from infrastructure.files.FormatExcelData2024 import FormatExcelData2024
+from infrastructure.factory.FormatExcelDataFactory import FormatExcelDataFactory
 
 class AdaptDepartment():
     def __init__(self):
+        self.format_excel_factory = FormatExcelDataFactory()
         pass
 
-    def Transform(self, datas):
-        excel_format = FormatExcelData2024()
+    def Transform(self, datas, key):
+        excel_format = self.format_excel_factory.get_format_excel_data(key)
         self.datas = excel_format.format(datas)
         department  = Department()
         department.code = self.datas[0]
