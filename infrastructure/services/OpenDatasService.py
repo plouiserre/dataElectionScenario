@@ -36,7 +36,8 @@ class OpenDataServices(DataServices) :
             self.departments.append(department)     
     
     def __retrieve_parties(self):        
-        self.parties = self.party_memory.get_all_parties()
+        all_parties = self.party_memory.get_all_parties()
+        self.parties = all_parties[2024]
 
     def SaveDatas(self, result_datas):
         json = self.AdaptElectionsData.to_json(result_datas)
