@@ -68,7 +68,3 @@ class AdaptResultsElections :
         )
         result_data_json = "{\"elections_results\" : " + result_data_json_inside+ "}"
         return result_data_json
-
-
-    
-
