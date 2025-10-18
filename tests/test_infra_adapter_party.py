@@ -7,7 +7,7 @@ class AdaptPartyTest(unittest.TestCase):
     def test_ug_party_to_json(self):
             adaptParty = AdaptParty()
             parties = build_parties()
-            party = parties[0]
+            party = parties[2022][0]
 
             json = adaptParty.to_json(party)
 
