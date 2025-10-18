@@ -21,7 +21,7 @@ class UsecasesCalculateElectionDataTest(unittest.TestCase):
         lines.append(thirdLine)
         lines.append(fourthLine)
         all_datas = {}
-        all_datas[2022] = lines
+        all_datas[2024] = lines
         return all_datas
     
     def test_elections_datas_are_calculated(self):
