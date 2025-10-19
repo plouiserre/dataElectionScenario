@@ -2,7 +2,7 @@ from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 from infrastructure.adapter.AdaptDepartments import AdaptDepartments
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
 from infrastructure.adapter.AdaptElection import AdaptElection
-from infrastructure.adapter.AdaptParty import AdaptParty
+from infrastructure.adapter.AdaptParties import AdaptParties
 
 class AdaptResultsElections : 
     def __init__(self):
@@ -43,23 +43,9 @@ class AdaptResultsElections :
         self.departments_json = adapt_departments.to_json(self.departments)
 
     def __parties_json(self):
-        self.parties_json += "\"parties\":{"
-        count = 0
-        for year, parties_year in self.parties.items():
-            self.parties_json +="\"{year}\":[".format(year = year)
-            for i, party in enumerate(parties_year):
-                adapt_party = AdaptParty()
-                json_party = adapt_party.to_json(party)
-                if(i == len(self.parties) - 1):
-                    self.parties_json += json_party
-                else :                 
-                    self.parties_json += json_party + ','   
-            if count == len(self.parties) - 1 :
-                self.parties_json += "]"
-            else :
-                self.parties_json += "],"
-            count += 1
-        self.parties_json += "}}"
+        adapt_parties = AdaptParties()
+        self.parties_json = adapt_parties.to_json(self.parties)
+        self.parties_json += "}"
 
     def __results_data_json(self):
         result_data_json_inside = "{all_elections}, {all_departments}, {all_parties}".format(
