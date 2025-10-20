@@ -7,19 +7,19 @@ class FormatExcelData2022(FormatExcelData):
     def format(self, text):
         data = text
         data = self._delete_square_bracket(data)
-        data = self._replace_forbidden_words(data)
+        data = self._replace_complexe_words(data)
         datas = self._separate_str(data)
-        datas = self.__delete_complet_word(datas)        
+        datas = self.__delete_forbidden_words(datas)        
         datas = self.__ordered_datas(datas)
         datas = self.__rename_sexe_candidates(datas)
         datas = self.__clean_percentage(datas)
         datas = self._reput_forbidden_words(datas)
         return datas
     
-    def __delete_complet_word(self, datas):
+    def __delete_forbidden_words(self, datas):
         datas_accepted = []
         for data in datas :
-            if data == "Complet":
+            if data == "Complet" or data == "Elu":
                 continue
             else : 
                 datas_accepted.append(data)

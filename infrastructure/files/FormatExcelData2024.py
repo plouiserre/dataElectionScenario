@@ -7,7 +7,7 @@ class FormatExcelData2024(FormatExcelData):
     def format(self, text):
         data = text
         data = self._delete_square_bracket(data)
-        data = self._replace_forbidden_words(data)
+        data = self._replace_complexe_words(data)
         datas = self._separate_str(data)
         datas = self.__clean_percentage(datas)
         datas = self._reput_forbidden_words(datas)

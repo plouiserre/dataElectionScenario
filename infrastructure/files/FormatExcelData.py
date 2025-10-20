@@ -5,7 +5,7 @@ class FormatExcelData :
     def format(self, text):
         pass
 
-    def _replace_forbidden_words(self, data):
+    def _replace_complexe_words(self, data):
         data = data.replace('Côte-d\'Or', "CôtedOr")    
         data = data.replace('Côtes-d\'Armor', "CôtesdArmor")    
         data = data.replace('Val-d\'Oise', "ValdOise")        
@@ -22,8 +22,18 @@ class FormatExcelData :
         data = data.replace('D\'AUTRYVE', 'DAUTRYVE')
         data = data.replace('CUIGNACHE D\'APREVAL', 'CUIGNACHE DAPREVAL')
         data = data.replace('N\'Cho Xavier', 'NCho Xavier')
-        data = data.replace('GISCARD D\'ESTAING', 'GISCARD DESTAING')
-
+        data = data.replace('GISCARD D\'ESTAING', 'GISCARD DESTAING')        
+        data = data.replace('D\'ANGIO','DANGIO')  
+        data = data.replace('D\'AMILLY','DAMILLY')  
+        data = data.replace('BASTIDE D\'IZARD','BASTIDE DIZARD')
+        data = data.replace('D\'AUBIGNAN', 'DAUBIGNAN')       
+        data = data.replace('PROD\'HOMME', 'PRODHOMME')                  
+        data = data.replace('D\'ISOARD DE CHENERILLES', 'DISOARD DE CHENERILLES')
+        data = data.replace('D\'HONT', 'DHONT')
+        data = data.replace('Cindy\'Lee', 'CindyLee')   
+        data = data.replace('L\'AMINOT', 'LAMINOT')   
+        data = data.replace('N\'DONG', 'NDONG')   
+        data = data.replace('BEN M\'BAREK', 'BEN MBAREK')
         return data
 
     def _delete_square_bracket(self, str_excel):
@@ -91,6 +101,17 @@ class FormatExcelData :
             data = data.replace('DAUTRYVE', 'D\'AUTRYVE')
             data = data.replace('CUIGNACHE DAPREVAL', 'CUIGNACHE D\'APREVAL')
             data = data.replace('NCho Xavier', 'N\'Cho Xavier')
-            data = data.replace('GISCARD DESTAING', 'GISCARD D\'ESTAING')
+            data = data.replace('GISCARD DESTAING', 'GISCARD D\'ESTAING')                    
+            data = data.replace('DANGIO', 'D\'ANGIO')
+            data = data.replace('DAMILLY', 'D\'AMILLY')  
+            data = data.replace('BASTIDE DIZARD', 'BASTIDE D\'IZARD')
+            data = data.replace('DAUBIGNAN', 'D\'AUBIGNAN')       
+            data = data.replace('PRODHOMME', 'PROD\'HOMME')                  
+            data = data.replace('DISOARD DE CHENERILLES', 'D\'ISOARD DE CHENERILLES')
+            data = data.replace('DHONT', 'D\'HONT')
+            data = data.replace('CindyLee', 'Cindy\'Lee')   
+            data = data.replace('LAMINOT', 'L\'AMINOT')   
+            data = data.replace('NDONG', 'N\'DONG')   
+            data = data.replace('BEN MBAREK', 'BEN M\'BAREK')
             datas_with_forbidden_words.append(data)
         return datas_with_forbidden_words
