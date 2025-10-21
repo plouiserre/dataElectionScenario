@@ -23,13 +23,13 @@ def __assertSecondCandidate(data, candidate, unitTest):
     __assertCandidate(data, 25, candidate, unitTest)
 
 def __assertCandidate(data, index, candidate, unitTest):
-    unitTest.assertEqual(data[index], candidate.partiCode)
-    unitTest.assertEqual(data[index + 1], candidate.lastName)
-    unitTest.assertEqual(data[index + 2], candidate.firstName)
+    unitTest.assertEqual(data[index], candidate.parti_code)
+    unitTest.assertEqual(data[index + 1], candidate.last_name)
+    unitTest.assertEqual(data[index + 2], candidate.first_name)
     unitTest.assertEqual(data[index + 3], candidate.sexe)
     unitTest.assertEqual(data[index + 4], str(candidate.vote))
-    unitTest.assertEqual(data[index + 5], str(candidate.voteByRegistered))
-    unitTest.assertEqual(data[index + 6], str(candidate.voteByExpressed))
+    unitTest.assertEqual(data[index + 5], str(candidate.vote_registered))
+    unitTest.assertEqual(data[index + 6], str(candidate.vote_expressed))
 
 
 def AssertDepartment(datas, department, unitTest):
