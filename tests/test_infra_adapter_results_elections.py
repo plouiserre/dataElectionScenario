@@ -26,12 +26,12 @@ class AdaptResultsElectionsTest(unittest.TestCase):
         result = ResultDatas()
         result.Elections = []
         first_election = Election()
-        first_election.Districts.append(build_first_district())
-        first_election.Districts.append(build_third_district())
+        first_election.districts.append(build_first_district())
+        first_election.districts.append(build_third_district())
         first_election.year = 2022
         result.Elections.append(first_election)
         second_election = Election()
-        second_election.Districts.append(build_second_district())
+        second_election.districts.append(build_second_district())
         second_election.year = 2024
         result.Elections.append(second_election)
         result.Departments = build_departments()
