@@ -1,8 +1,8 @@
 def AssertDistrictWithTwoCandidates(datas, district, unitTest):
     data = datas.split('|')
     __assertDistrictResult(data, district, unitTest)
-    __assertFirstCandidate(data, district.Candidates[0], unitTest)
-    __assertSecondCandidate(data, district.Candidates[1], unitTest)
+    __assertFirstCandidate(data, district.candidates[0], unitTest)
+    __assertSecondCandidate(data, district.candidates[1], unitTest)
 
 
 def __assertDistrictResult(data, district, unitTest):

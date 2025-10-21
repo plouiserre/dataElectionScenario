@@ -32,7 +32,7 @@ class AdaptDistrict():
         district.label = self.datas[3]
         district.registered = self.datas[4]
         district.voting = self.datas[5]
-        district.Candidates = self.candidates
+        district.candidates = self.candidates
         return district
     
     def __extract_datas_candidates(self):
@@ -63,9 +63,9 @@ class AdaptDistrict():
     def to_json(self, district):
         #adapt_candidate = AdaptCandidate()
         json_candidates = "\"candidates\":["
-        for i, candidate in enumerate(district.Candidates):             
+        for i, candidate in enumerate(district.candidates):             
             json_candidate = self.adapt_candidate.to_json(candidate)
-            if(i == len(district.Candidates) - 1):
+            if(i == len(district.candidates) - 1):
                 json_candidates += json_candidate
             else :
                 json_candidates += json_candidate +","

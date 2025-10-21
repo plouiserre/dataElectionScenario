@@ -44,10 +44,10 @@ def __construct_district(label, number, department_code, registered, voting, fir
         district.department_code = department_code
         district.registered = registered
         district.voting = voting
-        district.Candidates.append(first_candidate)
-        district.Candidates.append(second_candidate)
+        district.candidates.append(first_candidate)
+        district.candidates.append(second_candidate)
         if third_candidate != None : 
-            district.Candidates.append(third_candidate)
+            district.candidates.append(third_candidate)
         return district
 
 def construct_districts_json(districts):
@@ -75,10 +75,10 @@ def construct_districts_json(districts):
 def construct_district_json(district):
         candidates = ''
         district_json = __construct_district_without_candidates(district)
-        first_candidate_json = construct_candidate_json(district.Candidates[0])
-        second_candidate_json = construct_candidate_json(district.Candidates[1])
-        if len(district.Candidates) == 3 :
-            three_candidate_json = construct_candidate_json(district.Candidates[2])
+        first_candidate_json = construct_candidate_json(district.candidates[0])
+        second_candidate_json = construct_candidate_json(district.candidates[1])
+        if len(district.candidates) == 3 :
+            three_candidate_json = construct_candidate_json(district.candidates[2])
             candidates = "\"candidates\":[{first_candidate_json},{second_candidate_json},{three_candidate_json}]".format(
                     first_candidate_json = first_candidate_json, second_candidate_json = second_candidate_json,
                     three_candidate_json = three_candidate_json
