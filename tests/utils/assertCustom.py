@@ -1,4 +1,4 @@
-def AssertDistrictWithTwoCandidates(datas, district, unitTest):
+def assertDistrictWithTwoCandidates(datas, district, unitTest):
     data = datas.split('|')
     __assertDistrictResult(data, district, unitTest)
     __assertFirstCandidate(data, district.candidates[0], unitTest)
@@ -12,7 +12,7 @@ def __assertDistrictResult(data, district, unitTest):
     unitTest.assertEqual(data[4], str(district.registered))
     unitTest.assertEqual(data[5], str(district.voting))
     
-def AssertCandidateResult(datas, candidate, unitTest):
+def assertCandidateResult(datas, candidate, unitTest):
     data = datas.split('|')
     __assertCandidate(data, 0, candidate, unitTest)
 
@@ -32,21 +32,12 @@ def __assertCandidate(data, index, candidate, unitTest):
     unitTest.assertEqual(data[index + 6], str(candidate.vote_expressed))
 
 
-def AssertDepartment(datas, department, unitTest):
+def assertDepartment(datas, department, unitTest):
     data = datas.split('|')
     unitTest.assertEqual(data[0], str(department.code))
     unitTest.assertEqual(data[1], department.name)
 
-def AssertParties(datas, resultParties, unitTest):
-    data = datas.split('|')
-    __assertParty(data, 0, resultParties[0], unitTest)
-    __assertParty(data, 2, resultParties[1], unitTest)
-    __assertParty(data, 4, resultParties[2], unitTest)
-    __assertParty(data, 6, resultParties[3], unitTest)
-    __assertParty(data, 8, resultParties[4], unitTest)
-
-
-def AssertParty(datas, resultParti, unitTest):
+def assertParty(datas, resultParti, unitTest):
     data = datas.split('|')
     __assertParty(data, 0, resultParti, unitTest)
 
