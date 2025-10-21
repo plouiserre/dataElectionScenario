@@ -30,7 +30,7 @@ class OpenDataServicesTest(unittest.TestCase):
     def test_datas_are_retrieve(self): 
         lines = self.__get_datas_from_excel()
         excel_elections = Mock()
-        excel_elections.Load.return_value = lines
+        excel_elections.load.return_value = lines
         json_file = JsonFile()
         adapt_department = AdaptDepartment()
         adapt_candidate = AdaptCandidate()

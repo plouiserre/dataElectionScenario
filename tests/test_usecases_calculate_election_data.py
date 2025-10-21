@@ -27,7 +27,7 @@ class UsecasesCalculateElectionDataTest(unittest.TestCase):
     def test_elections_datas_are_calculated(self):
         lines = self.get_datas_from_excel()
         excelElection = Mock()
-        excelElection.Load.return_value = lines
+        excelElection.load.return_value = lines
         json_file = Mock()
         json_file.Save.return_value = True
         adaptDepartment = AdaptDepartment()
