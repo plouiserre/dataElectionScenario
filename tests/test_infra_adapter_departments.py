@@ -1,6 +1,6 @@
 import unittest
 from infrastructure.adapter.AdaptDepartments import AdaptDepartments
-from tests.utils.assertCustom import AssertDepartment
+from tests.utils.assertCustom import assertDepartment
 from tests.utils.build_department import build_first_department, build_second_department, construct_departments_json
 
 class AdaptDepartmentTest(unittest.TestCase):

@@ -36,19 +36,19 @@ def build_eighth_candidate():
 
 def __construct_candidate(first_name, last_name, parti_code, sexe, vote, vote_by_expressed, vote_by_registered):
         candidate = Candidate()
-        candidate.firstName = first_name
-        candidate.lastName = last_name
-        candidate.partiCode = parti_code 
+        candidate.first_name = first_name
+        candidate.last_name = last_name
+        candidate.parti_code = parti_code 
         candidate.sexe = sexe
         candidate.vote = vote
-        candidate.voteByExpressed = vote_by_expressed
-        candidate.voteByRegistered = vote_by_registered
+        candidate.vote_expressed = vote_by_expressed
+        candidate.vote_registered = vote_by_registered
         return candidate 
 
 def construct_candidate_json(candidate):
     json_candidate = "\"lastName\":\"{lastname}\",\"firstName\":\"{firstName}\", \"sexe\":\"{sexe}\",\"partiCode\":\"{partiCode}\",\"vote\":{vote},\"voteByRegistered\":\"{voteByRegistered}\",\"voteByExpressed\":\"{voteByExpressed}\" ".format(
-            lastname = candidate.lastName, firstName = candidate.firstName, sexe = candidate.sexe, partiCode = candidate.partiCode, 
-            vote = candidate.vote, voteByRegistered = candidate.voteByRegistered, voteByExpressed = candidate.voteByExpressed)
+            lastname = candidate.last_name, firstName = candidate.first_name, sexe = candidate.sexe, partiCode = candidate.parti_code, 
+            vote = candidate.vote, voteByRegistered = candidate.vote_registered, voteByExpressed = candidate.vote_expressed)
     json_final = "{"+json_candidate+"}"
     return json_final
      

@@ -6,7 +6,7 @@ class AdaptDepartment():
         self.format_excel_factory = FormatExcelDataFactory()
         pass
 
-    def Transform(self, datas, key):
+    def transform(self, datas, key):
         excel_format = self.format_excel_factory.get_format_excel_data(key)
         self.datas = excel_format.format(datas)
         department  = Department()

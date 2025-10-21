@@ -24,24 +24,24 @@ class AdaptResultsElectionsTest(unittest.TestCase):
 
     def __construct_elections_results(self):
         result = ResultDatas()
-        result.Elections = []
+        result.elections = []
         first_election = Election()
-        first_election.Districts.append(build_first_district())
-        first_election.Districts.append(build_third_district())
+        first_election.districts.append(build_first_district())
+        first_election.districts.append(build_third_district())
         first_election.year = 2022
-        result.Elections.append(first_election)
+        result.elections.append(first_election)
         second_election = Election()
-        second_election.Districts.append(build_second_district())
+        second_election.districts.append(build_second_district())
         second_election.year = 2024
-        result.Elections.append(second_election)
-        result.Departments = build_departments()
-        result.Parties = build_parties()
+        result.elections.append(second_election)
+        result.departments = build_departments()
+        result.parties = build_parties()
         return result
 
     def __construct_json_elections_result(self, elections_results):
-        all_elections_json = construct_elections_json(elections_results.Elections)
-        all_departments_json = construct_departments_json(elections_results.Departments)
-        all_parties_json = construct_parties_json(elections_results.Parties)
+        all_elections_json = construct_elections_json(elections_results.elections)
+        all_departments_json = construct_departments_json(elections_results.departments)
+        all_parties_json = construct_parties_json(elections_results.parties)
         result_data_json_inside = "{all_elections}, {all_departments}, {all_parties}".format(
             all_elections = all_elections_json, all_departments = all_departments_json, 
             all_parties = all_parties_json

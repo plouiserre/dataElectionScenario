@@ -26,12 +26,12 @@ adapt_election = AdaptElection(adaptDistrict)
 adaptDepartment  = AdaptDepartment()
 adapt_results_elections = AdaptResultsElections()
 party_memory = PartyMemory()
-datas = excelManager.Load()
+datas = excelManager.load()
 for line in datas :
     print(line)
 openDataServices = OpenDataServices(excelManager, json_files, adaptDepartment, adapt_results_elections, adapt_election, party_memory)
 calcul = CalculateElectionData(openDataServices)
-calcul.Calculate()
+calcul.calculate()
 print("fin lecture")
 
 

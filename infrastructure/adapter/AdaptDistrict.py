@@ -17,7 +17,7 @@ class AdaptDistrict():
         self.format_excel_factory = FormatExcelDataFactory()
         pass
 
-    def Transform(self, datas, key):
+    def transform(self, datas, key):
         excel_format = self.format_excel_factory.get_format_excel_data(key)
         self.datas = excel_format.format(datas)
         self.__extract_datas_candidates()
@@ -32,7 +32,7 @@ class AdaptDistrict():
         district.label = self.datas[3]
         district.registered = self.datas[4]
         district.voting = self.datas[5]
-        district.Candidates = self.candidates
+        district.candidates = self.candidates
         return district
     
     def __extract_datas_candidates(self):
@@ -51,21 +51,20 @@ class AdaptDistrict():
                 isFirstCandidate = False
                 candidate_data_to_adapt.append(candidate_data)
             elif candidate_data in self.parties_codes and isFirstCandidate == False:
-                candidate = self.adapt_candidate.Transform(candidate_data_to_adapt)
+                candidate = self.adapt_candidate.transform(candidate_data_to_adapt)
                 self.candidates.append(candidate)
                 candidate_data_to_adapt = []      
                 candidate_data_to_adapt.append(candidate_data)
             elif isFirstCandidate == False : 
                 candidate_data_to_adapt.append(candidate_data)
-        candidate = self.adapt_candidate.Transform(candidate_data_to_adapt)
+        candidate = self.adapt_candidate.transform(candidate_data_to_adapt)
         self.candidates.append(candidate)
 
     def to_json(self, district):
-        #adapt_candidate = AdaptCandidate()
         json_candidates = "\"candidates\":["
-        for i, candidate in enumerate(district.Candidates):             
+        for i, candidate in enumerate(district.candidates):             
             json_candidate = self.adapt_candidate.to_json(candidate)
-            if(i == len(district.Candidates) - 1):
+            if(i == len(district.candidates) - 1):
                 json_candidates += json_candidate
             else :
                 json_candidates += json_candidate +","

@@ -5,7 +5,7 @@ class ExcelElection :
         self.keys = keys
         self.paths = paths
 
-    def Load(self):
+    def load(self):
         results = {}        
         for idx, path in enumerate(self.paths):
             datas = []
