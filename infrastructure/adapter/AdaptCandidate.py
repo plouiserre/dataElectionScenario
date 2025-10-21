@@ -4,7 +4,7 @@ class AdaptCandidate():
     def __init__(self):
         pass
 
-    def Transform(self, datas):
+    def transform(self, datas):
         candidate = Candidate()
         candidate.parti_code = datas[0]
         candidate.last_name = datas[1]

@@ -21,7 +21,7 @@ class AdapterElectionTest(unittest.TestCase):
         adapt_district = AdaptDistrict(adapt_candidate)
         adapt_election = AdaptElection(adapt_district)
 
-        election_data =adapt_election.Transform(datas, 2024)
+        election_data =adapt_election.transform(datas, 2024)
 
         self.assertEqual(2024, election_data.year)
         AssertDistrictWithTwoCandidates("33|Gironde|3310|10ème circonscription|83620|58727|70,23%|24893|29,77%|55515|66,39%|94,53%|2365|2.83|4.03|847|1.01|1.44|ENS|BOUDIÉ|Florent|MASCULIN|28960|34.63%|52.17%|RN|CHADOURNE|Sandrine|FEMININ|26555|31.76%|47.83%", election_data.districts[0], self)

@@ -26,13 +26,13 @@ class OpenDataServices(DataServices) :
     
     def __retrieveElections(self, datas):
         for key, data in datas.items() : 
-            election = self.AdaptElection.Transform(data, key)
+            election = self.AdaptElection.transform(data, key)
             self.elections.append(election)
 
     def __retrieveDepartments(self, datas): 
          first_year = list(datas.keys())[0]
          for data in datas[first_year] : 
-            department = self.AdaptDepartment.Transform(data, first_year)
+            department = self.AdaptDepartment.transform(data, first_year)
             self.departments.append(department)     
     
     def __retrieve_parties(self):        

@@ -4,10 +4,10 @@ class AdaptElection :
     def __init__(self, adaptDistrict):
         self.AdaptDistrict = adaptDistrict        
 
-    def Transform(self, datas, year):
+    def transform(self, datas, year):
         self.districts = []
         for data in datas : 
-            district = self.AdaptDistrict.Transform(data, year)
+            district = self.AdaptDistrict.transform(data, year)
             self.districts.append(district)  
         election = Election()
         election.year = year
