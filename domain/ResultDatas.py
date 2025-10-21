@@ -1,5 +1,5 @@
 class ResultDatas :
     def __init__(self):
-        self.Elections = {}
-        self.Departments = []
-        self.Parties = []
+        self.elections = {}
+        self.departments = []
+        self.parties = []

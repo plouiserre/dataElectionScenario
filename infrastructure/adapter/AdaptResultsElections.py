@@ -15,9 +15,9 @@ class AdaptResultsElections :
 
     def to_json(self, result_datas): 
         #tmp code
-        self.elections = result_datas.Elections
-        self.departments = result_datas.Departments
-        self.parties = result_datas.Parties
+        self.elections = result_datas.elections
+        self.departments = result_datas.departments
+        self.parties = result_datas.parties
         # self.__districts_json()
         self.__elections_json()
         self.__departments_json()

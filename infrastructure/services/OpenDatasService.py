@@ -19,9 +19,9 @@ class OpenDataServices(DataServices) :
         self.__retrieveDepartments(all_datas)
         self.__retrieve_parties() 
         resultFinals = ResultDatas()
-        resultFinals.Departments = self.departments
-        resultFinals.Elections = self.elections
-        resultFinals.Parties = self.parties
+        resultFinals.departments = self.departments
+        resultFinals.elections = self.elections
+        resultFinals.parties = self.parties
         return resultFinals
     
     def __retrieveElections(self, datas):
