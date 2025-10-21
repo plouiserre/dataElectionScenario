@@ -38,5 +38,5 @@ class UsecasesCalculateElectionDataTest(unittest.TestCase):
         party_memory = PartyMemory()
         openDatasService = OpenDataServices(excelElection, json_file, adaptDepartment, adapt_results_elections, adaptElection, party_memory)
         calculateElectionData = CalculateElectionData(openDatasService)
-        isWellExecuted = calculateElectionData.Calculate()
+        isWellExecuted = calculateElectionData.calculate()
         self.assertTrue(isWellExecuted)                                                                                                                                                 
