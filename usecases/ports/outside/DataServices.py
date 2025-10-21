@@ -1,6 +1,6 @@
 class DataServices : 
-    def RetrieveDatas():
+    def retrieveDatas():
         pass
 
-    def SaveDatas(result_datas):
+    def saveDatas(result_datas):
         pass

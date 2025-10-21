@@ -13,7 +13,7 @@ class OpenDataServices(DataServices) :
         self.departments = []
         self.parties = []
 
-    def RetrieveDatas(self):
+    def retrieveDatas(self):
         all_datas = self.ExcelElection.load()
         self.__retrieveElections(all_datas)
         self.__retrieveDepartments(all_datas)
@@ -38,7 +38,7 @@ class OpenDataServices(DataServices) :
     def __retrieve_parties(self):        
         self.parties = self.party_memory.get_all_parties()
 
-    def SaveDatas(self, result_datas):
+    def saveDatas(self, result_datas):
         json = self.AdaptElectionsData.to_json(result_datas)
         self.JsonFile.write(json)
         return True    

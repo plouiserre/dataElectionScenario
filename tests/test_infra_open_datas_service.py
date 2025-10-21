@@ -41,7 +41,7 @@ class OpenDataServicesTest(unittest.TestCase):
         open_data_services = OpenDataServices(excel_elections, json_file, adapt_department, adapt_results_elections, adapt_election, 
                                               party_memory)
 
-        results = open_data_services.RetrieveDatas()
+        results = open_data_services.retrieveDatas()
 
         self.assertEqual(2, len(results.elections[0].districts))
         self.assertEqual(2022, results.elections[0].year)
