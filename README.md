@@ -37,7 +37,7 @@ python -m unittest discover -s tests
 ```
 
 ## Structure of projects
-
+```
 DataElectionsScenarios
 ├─── domain/
 ├─── infrastructure/
@@ -54,3 +54,4 @@ DataElectionsScenarios
     ├───ports/
     │   └───outside/
 main.py 
+```
