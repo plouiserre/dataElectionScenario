@@ -7,7 +7,7 @@ An projet which transform data from 2022 and 2024 legislative elections to trans
 
 ## Sommaire
 - [Installation](#installation)
-- [Utilisation](#utilisation)
+- [Use](#use)
 - [Tests](#tests)
 - [Structure du projet](#structure-du-projet)
 - [Auteurs](#auteurs)
@@ -23,3 +23,16 @@ Install all dependencies :
 ```bash
 pip install -r requirements.txt
 ```
+
+## Use
+Execute the program with this command line : 
+```bash
+python main.py
+```
+
+## Tests
+Execute all tests : 
+```bash
+python -m unittest discover -s tests
+```
+
