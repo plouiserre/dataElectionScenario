@@ -57,4 +57,4 @@ main.py
 ```
 
 ## Autors
-- **Pierre-Louis Serré** – Principle Developer
+**Pierre-Louis Serré** – Principle Developer
