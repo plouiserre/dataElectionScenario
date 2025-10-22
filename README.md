@@ -18,3 +18,8 @@ Clone the project :
 git clone https://github.com/plouiserre/dataElectionScenario.git
 cd dataElectionScenario
 ```
+
+Install all dependencies : 
+```bash
+pip install -r requirements.txt
+```
