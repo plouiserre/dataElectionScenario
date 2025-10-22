@@ -9,7 +9,7 @@ An projet which transform data from 2022 and 2024 legislative elections to trans
 - [Installation](#installation)
 - [Use](#use)
 - [Tests](#tests)
-- [Structure du projet](#structure-du-projet)
+- [Structure du projet](#structure-of-project)
 - [Auteurs](#auteurs)
 
 ## Installation 
@@ -36,3 +36,21 @@ Execute all tests :
 python -m unittest discover -s tests
 ```
 
+## Structure of projects
+
+DataElectionsScenarios
+├─── domain/
+├─── infrastructure/
+│   ├───adapter/   
+│   ├───factory/
+│   ├───files/
+│   ├───memory/
+│   ├───services/
+├───openDatas/
+├───tests
+│   ├───utils/
+└───usecases/
+    ├───AdaptResultElectionData/
+    ├───ports/
+    │   └───outside/
+main.py 
