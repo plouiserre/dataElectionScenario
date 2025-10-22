@@ -36,7 +36,7 @@ Execute all tests :
 python -m unittest discover -s tests
 ```
 
-## Structure of projects
+## Structure of project
 ```
 DataElectionsScenarios
 ├─── domain/
