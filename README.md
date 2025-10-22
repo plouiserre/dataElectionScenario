@@ -12,3 +12,9 @@ An projet which transform data from 2022 and 2024 legislative elections to trans
 - [Structure du projet](#structure-du-projet)
 - [Auteurs](#auteurs)
 
+## Installation 
+Clone the project : 
+```bash
+git clone https://github.com/plouiserre/dataElectionScenario.git
+cd dataElectionScenario
+```
