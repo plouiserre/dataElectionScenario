@@ -10,7 +10,7 @@ An projet which transform data from 2022 and 2024 legislative elections to trans
 - [Use](#use)
 - [Tests](#tests)
 - [Structure du projet](#structure-of-project)
-- [Auteurs](#auteurs)
+- [Autors](#autors)
 
 ## Installation 
 Clone the project : 
@@ -55,3 +55,6 @@ DataElectionsScenarios
     │   └───outside/
 main.py 
 ```
+
+## Autors
+- **Pierre-Louis Serré** – Principle Developer
