@@ -1,3 +1,4 @@
+import sys
 from infrastructure.files.ExcelElection import ExcelElection
 from infrastructure.files.JsonFile import JsonFile
 from infrastructure.services.OpenDatasService import OpenDataServices
@@ -11,15 +12,12 @@ from infrastructure.memory.party_memory import PartyMemory
 
 
 print("lecture données")
-paths = ["C:/Users/ploui/Projects/dataElectionScenario/openDatas/2024-circonscriptions.xlsx", "C:/Users/ploui/Projects/dataElectionScenario/openDatas/2022-circonscriptions.xlsx"]
+json_file_path = sys.argv[1]
+paths = ["openDatas/2024-circonscriptions.xlsx", "openDatas/2022-circonscriptions.xlsx"]
 keys = [2024, 2022]
-# paths = ["C:/Users/ploui/Projects/dataElectionScenario/openDatas/2024-circonscriptions.xlsx"]
-# keys = [2024]
-# paths = ["C:/Users/ploui/Projects/dataElectionScenario/openDatas/2022-circonscriptions.xlsx"]
-# keys = [2022]
 
 excelManager = ExcelElection(keys, paths)
-json_files = JsonFile()
+json_files = JsonFile(json_file_path)
 adaptCandidate = AdaptCandidate()
 adaptDistrict = AdaptDistrict(adaptCandidate)
 adapt_election = AdaptElection(adaptDistrict)
