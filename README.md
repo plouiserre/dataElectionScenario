@@ -25,9 +25,9 @@ pip install -r requirements.txt
 ```
 
 ## Use
-Execute the program with this command line : 
+Execute the program with this command line and replace path_results by the path where the json files will be generate: 
 ```bash
-python main.py
+python main.py "path_results"
 ```
 
 ## Tests
