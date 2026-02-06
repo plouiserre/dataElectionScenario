@@ -1,6 +1,6 @@
 import unittest
 from tests.utils.assertCustom import assertDistrictWithTwoCandidates
-from tests.utils.build_district import build_first_district, construct_district_json
+from tests.utils.build_district import build_first_district, construct_district_json, build_ain_district
 from infrastructure.adapter.AdaptDistrict import AdaptDistrict
 from infrastructure.adapter.AdaptCandidate import AdaptCandidate
 
@@ -25,3 +25,14 @@ class AdaptDistrictTest(unittest.TestCase):
 
         self.assertEqual(json, json_expected)
 
+
+    def test_district_to_json_with_2022_district_in_Ain_Department(self) : 
+        adaptCandidate = AdaptCandidate()
+        adaptDistrict = AdaptDistrict(adaptCandidate)
+        district = build_ain_district()
+
+        json = adaptDistrict.to_json(district)
+
+        json_expected = '{"label":"1ère circonscription","number":"1", "department code":"1", "registered":98281,"voting":67852 , "candidates":[{"lastName":"Louise","firstName":"MOREL", "sexe":"FEMININ","partiCode":"ENS","vote":35890,"voteByRegistered":"36.52%","voteByExpressed":"55.02%" }]}'
+
+        self.assertEqual(json, json_expected)
