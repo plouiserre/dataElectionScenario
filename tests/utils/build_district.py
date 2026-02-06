@@ -37,6 +37,11 @@ def build_third_district():
                                                 second_candidate_third_district, None)
     return third_district
 
+def build_ain_district(): 
+    first_candidate_third_district = build_sixth_candidate()
+    ain_district = __construct_district('1ère circonscription', '1', '01', '98281', '67852', first_candidate_third_district, None, None)
+    return ain_district
+
 def __construct_district(label, number, department_code, registered, voting, first_candidate, second_candidate, third_candidate): 
         district = District()
         district.label = label
@@ -45,7 +50,8 @@ def __construct_district(label, number, department_code, registered, voting, fir
         district.registered = registered
         district.voting = voting
         district.candidates.append(first_candidate)
-        district.candidates.append(second_candidate)
+        if second_candidate != None : 
+            district.candidates.append(second_candidate)
         if third_candidate != None : 
             district.candidates.append(third_candidate)
         return district

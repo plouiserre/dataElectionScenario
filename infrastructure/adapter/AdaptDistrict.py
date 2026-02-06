@@ -70,8 +70,15 @@ class AdaptDistrict():
                 json_candidates += json_candidate +","
         json_candidates += "]"
         json_district_without_candidates = "\"label\":\"{label}\",\"number\":\"{number}\", \"department code\":\"{department_code}\", \"registered\":{registered}," \
-                "\"voting\":{voting} ".format( label = district.label, number = district.number, department_code = district.department_code,
+                "\"voting\":{voting} ".format( label = district.label, number = district.number, department_code = self.__change_dpt_code_for_less_than_ten(district.department_code),
                 registered = district.registered, voting = district.voting)
         json_district_final = "{district}, {candidates}".format(district = json_district_without_candidates, candidates = json_candidates )
         json_district_final = "{"+json_district_final+"}"
         return json_district_final
+    
+    def __change_dpt_code_for_less_than_ten(self, department_code): 
+        if isinstance(department_code, int) :
+            if int(department_code) > 9 : 
+                return department_code
+            else : 
+                return department_code.replace('0', '')
