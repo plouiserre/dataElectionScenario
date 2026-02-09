@@ -82,3 +82,5 @@ class AdaptDistrict():
                 return department_code
             else : 
                 return department_code.replace('0', '')
+        else : 
+            return department_code
