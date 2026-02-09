@@ -77,7 +77,7 @@ class AdaptDistrict():
         return json_district_final
     
     def __change_dpt_code_for_less_than_ten(self, department_code): 
-        if isinstance(department_code, int) :
+        if department_code.isdigit():
             if int(department_code) > 9 : 
                 return department_code
             else : 
