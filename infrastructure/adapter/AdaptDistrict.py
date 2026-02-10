@@ -70,11 +70,35 @@ class AdaptDistrict():
                 json_candidates += json_candidate +","
         json_candidates += "]"
         json_district_without_candidates = "\"label\":\"{label}\",\"number\":\"{number}\", \"department code\":\"{department_code}\", \"registered\":{registered}," \
-                "\"voting\":{voting} ".format( label = district.label, number = district.number, department_code = self.__change_dpt_code_for_less_than_ten(district.department_code),
+                "\"voting\":{voting} ".format( label = district.label, number = district.number, department_code = self.__manage_department_code_complexe_2022_years(district.department_code),
                 registered = district.registered, voting = district.voting)
         json_district_final = "{district}, {candidates}".format(district = json_district_without_candidates, candidates = json_candidates )
         json_district_final = "{"+json_district_final+"}"
         return json_district_final
+    
+
+    #TODO move all below in a new class
+    def __manage_department_code_complexe_2022_years(self, department_code):
+        if department_code == "ZA": 
+            return "971"
+        elif department_code == "ZB":
+            return "972"
+        elif department_code == "ZC":
+            return "973"
+        elif department_code == "ZD": 
+            return "974"
+        elif department_code == "ZM":
+            return "976"
+        elif department_code == "ZN":
+            return "988"
+        elif department_code == "ZP":
+            return "987"
+        elif department_code == "ZS":
+            return "975"
+        elif department_code == "ZW":
+            return "986"
+        else : 
+            return self.__change_dpt_code_for_less_than_ten(department_code)
     
     def __change_dpt_code_for_less_than_ten(self, department_code): 
         if department_code.isdigit():
